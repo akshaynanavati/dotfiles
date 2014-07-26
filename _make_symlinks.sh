@@ -5,13 +5,9 @@
 # When a symlink already exists, replace it
 
 declare -a dotfile_whitelist=(
-  .bash_profile\
-  .bash_includes\
+  .bash_profile_git\
   .gitconfig\
   .gitignore\
-  .inputrc\
-  .screenrc\
-  .tmux.conf\
   .vim\
   .vimrc\
 )
