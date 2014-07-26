@@ -141,6 +141,7 @@ set tm=500
 
 " put $ at end of line
 set list
+set listchars=eol:$,tab:\|\ 
 
 " cursorline only in active buffer
 set cursorline
@@ -202,6 +203,7 @@ set si "Smart indent
 set wrap "Wrap lines
 
 map tw :set tw=78<cr>
+map <leader>k :call LinuxFormatting()<cr>
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -442,4 +444,16 @@ function! <SID>BufcloseCloseIt()
    if buflisted(l:currentBufNum)
      execute("bdelete! ".l:currentBufNum)
    endif
+endfunction
+
+function! LinuxFormatting()
+    setlocal tabstop=8
+    setlocal shiftwidth=8
+    setlocal softtabstop=8
+    setlocal textwidth=80
+    setlocal noexpandtab
+
+    setlocal cindent
+    setlocal formatoptions=tcqlron
+    setlocal cinoptions=:0,l1,t0,g0
 endfunction
