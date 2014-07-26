@@ -10,6 +10,7 @@ declare -a dotfile_whitelist=(
   .gitignore\
   .vim\
   .vimrc\
+  .git_prompt\
 )
 
 backup_dir="${HOME}/old_dotfiles"
