@@ -8,3 +8,7 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export EDITOR=vim
+
+alias ll="ls -lt"
+alias la="ls -lta"
+alias lr="ls -altr"
