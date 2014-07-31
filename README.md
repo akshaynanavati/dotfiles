@@ -30,4 +30,6 @@ Gitconfig Notes
 ---
 
 Currently, the gitconfig file has my name and email in it. You probably want to edit
-the first few lines of this file with your own git name and email.
+the first few lines of this file with your own git name and email. You will also want
+update the line with `excludesfile = /Users/akshaynanavati/.gitignore` to
+`excludesfile = /absolute/path/to/yout/home/.gitignore`
