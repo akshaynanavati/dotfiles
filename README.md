@@ -12,8 +12,8 @@ Usage
 
 -Run `./_osx_defaults.sh` only to get the osx configuratoin options.
 
-Note, if you want to use the bash_rofile provided in this repo, you must add
-`source ~/.bash_profile_git` to your own bash config file.
+Note, if you want to use the bash configurations provided in this repo,
+you must add `source ~/.bash_profile_git` to your own bash config file.
 
 Vimrc Notes
 ---
