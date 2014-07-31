@@ -1,0 +1,502 @@
+ __     ___             _____      _
+ \ \   / (_)_ __ ___   |_   _|   _| |_ ___  _ __
+  \ \ / /| | '_ ` _ \    | || | | | __/ _ \| '__|
+   \ V / | | | | | | |   | || |_| | || (_) | |
+    \_/  |_|_| |_| |_|   |_| \__,_|\__\___/|_|
+
+  ____            _     ____
+ |  _ \ __ _ _ __| |_  |___ \
+ | |_) / _` | '__| __|   __) |
+ |  __/ (_| | |  | |_   / __/
+ |_|   \__,_|_|   \__| |_____|
+
+===============================================================================
+V I M  T u t o r  P a r t  2  (SECT001)
+===============================================================================
+
+This tutorial assumes you have completed the builtin vimtutor. If you have
+not, run `vimtutor` in a terminal and complete the tutorial. Once you
+have a solid understanding of that, go ahead and begin this tutorial.
+
+Pre-requisites
+--------------
+  * vimtutor
+  * The following vim plugins should be installed:
+    - pathogen
+    - nerdtree
+    - syntastic
+    - vim-airline
+    - vim-fugitive
+    - ctrlp
+
+  * .vimrc
+
+ ATTENTION:
+ The commands in the lessons will modify the text.  Make a copy of this
+ file to practise on (if you started "vimtutor" this is already a copy).
+
+ It is important to remember that this tutor is set up to teach by
+ use.  That means that you need to execute the commands to learn them
+ properly.  If you only read the text, you will forget the commands!
+
+===============================================================================
+T a b l e  o f  c o n t e n t s  (SECT002)
+===============================================================================
+
+Hit * on the navigation keyword to jump to the given section. Note that there
+might be more than one entry for that navigation keyword so keep hitting n
+till you get to the right section header.
+
+Navigation Keyword             Section Title
+------------------             -------------
+(SECT001) .................... Vim tutor part 2
+(SECT002) .................... Table of contents
+(SECT003) .................... How to navigate a file
+(SECT004) .................... Editing in normal mode
+(SECT005) .................... Ways to enter insert mode
+(SECT006) .................... Yank, delete, select, and change text
+(SECT007) .................... Visual mode
+(SECT008) .................... Recording macros
+(SECT009) .................... Marks to navigate a file
+(SECT010) .................... Editing more than one file
+(SECT011) .................... Search and replace
+(SECT012) ...................  Misc vim tips
+(SECT013) .................... Useful plugins
+(SECT014) .................... Useful mappings
+
+===============================================================================
+H o w  t o  n a v i g a t e  a  f i l e  (SECT003)
+===============================================================================
+
+          ^
+          k           Hint:  The h key is at the left and moves left.
+      < h   l >              The l key is at the right and moves right.
+          j                  The j key looks like a down arrow.
+          v
+
+  1. w to move cursor to start of the next word
+  2. e to move cursor to end of next word
+  3. b to move cursor to beginning of previous word
+  4. 0 to move to start of line
+  5. ^ to move to first character in line
+  6. $ to move to end of line
+  7. f <char> to move cursor to next instance of char on the current line
+  8. t <char> to move cursor right before the next instance of char on the
+     current line
+  9. % to move to next matching brace - works for (, [, and {
+  10. gg goes to beginning of file. G goes to end.
+  11. zz puts the current line at the center of the window
+  12. zt puts the current line at the top of the window
+  13. :<n> jumps the cursor to line n
+
+  Try using any of the navigation techniques above throughout this file.
+  Remember, you can always use gg to get to the top of the file and use the
+  table of contents to get back to this section. Or use :94 to get to the next
+  section.
+
+  Mappings
+  --------
+    * 0 has been mapped to ^
+    * - has been mapped to $
+
+===============================================================================
+E d i t i n g  i n  n o r m a l  m o d e (SECT004)
+===============================================================================
+
+  * r<char> replaces the character under the cursor with the specified char
+  * x deletes the character under the cursor
+  * ctrl-a increments the number under the cursor by 1 <- try it!
+  * ctrl-x decrements the number under the cursor by 1 <- try it!
+  * u undoes the last change
+  * ctrl-r redoes the last undo
+  * p puts the last yanked or deleted text after the cursor (see (SECT007) for
+    more on yanking and deleting)
+  * >> indents the current line; << dedents the current line
+  * dd deletes the current line
+
+===============================================================================
+W a y s  T o  E n t e r  I n s e r t  M o d e (SECT005)
+===============================================================================
+
+  1. Type  o  to open a line BELOW the cursor and start Insert mode.
+     Type  O  to open a line ABOVE the cursor.
+
+  2. Type  a  to insert text AFTER the cursor.
+     Type  A  to insert text after the end of the line.
+
+  3. Type c <operation> to perform the operation and enter insert mode.
+     See the section (SECT006) for more information on the c command.
+
+  4. Type s to delete the char under the cursor and enter insert mode
+     Type S to delete the line and enter insert mode (same as cc)
+
+===============================================================================
+Y a n k  d e l e t e  s e l e c t  a n d  c h a n g e  t e x t  (SECT006)
+===============================================================================
+
+  0. v is the select keyword - more on this in the visual mode section
+  1. y is the yank keyword (copy to register)
+  2. d is the delete keyword (yank and also delete)
+  3. c is the change keyword (delete and enter insert mode)
+
+  You can use yy, dd, and cc to operate on the entire line - i.e. yy yanks the
+  entire line, dd deletes the entire line, and cc changes the entire line
+
+  Note that y, d, v, and c all take an operation. That operation is performed
+  and the text is yanked, deleted, selected or changed respectively.
+
+
+  Operations
+  ----------
+    * the enumerated keys used for navigating through text - for examaple,
+      dt<char> (delete till char) deletes everything from the cursor to the
+      given char and y$ yanks everything from the cursor to the end of the
+      line
+    * i<punctuation> is the "in" operator - for example, di" deletes in
+      quotations i.e. if the cursor is within quotations that are closed on
+      the same line, everything within the quotes will be deleted. Try it by
+      deleting the text within the following delimiters:
+        "delete this text with one command"
+        'and this text too'
+        < it works with angle brackets too >
+        ( and parens )
+        [same with square brackets]
+        { and curly braces }
+    * you can use iw for "in word" - for example, diw deletes the word the
+      cursor is on; yiw yanks it. Try experimenting with the following words:
+        foo      bar    delete_me     change_me
+
+  Mappings
+  --------
+    * cw has been mapped to ciw
+    * yw has been mapped to yiw
+    * vw has been mapped to viw
+
+  Interactive Quiz
+  ----------------
+
+  Fix the following lines as indicated using exactly one vim command.
+
+  1) The function call below no longer takes any arguments
+     fun_takes_no_args(foo, bar, a, b, c)
+
+  2) The function call below only takes foo as an argument
+     fun_takes_one_arg(foo, bar, a, b, c)
+
+  3) The following string needs to be changed to "hello world"
+     "change this string"
+
+  4) The following variable name needs to be updated to fixed_variable_name_1
+     wrong_variable_name_1
+
+  5) The following array needs to be indexed at 1
+     index_me_at_1[some + complicated - formula]
+
+  6) Remove the extraneous parenthesized text from the sentence below
+     This is a (this shouldn't be here) sentence.
+
+  7) Remove the gibberish at the end of this line
+     This is a sentence.sa;flksfhslkfajshdfkjslafkjwelj45){$})[]
+
+===============================================================================
+V i s u a l  m o d e (SECT007)
+===============================================================================
+
+  * Use v to enter vosual mode. Use standard navigation keys to modify the
+    selected area.
+  * :w <filename> while text is selected in visual mode will save the selected
+    text to the given filename.
+  * Use y, d, and c to yank, delete, or change the selected area respectively.
+  * o toggles the cursor from the beginning to the end of the selection
+  * V enters visual line mode - use j, k to select lines and o to toggle to
+    begginning/end of the selection
+      - < dedents the selected lines; > indents the selected lines
+  * Ctrl-v enters visual block mode. Use I to insert text and hit escape - the
+    text will be inserted at the beginning of each selected line.
+      - d will delete the block, y will yank it, and c will delete it and
+        insert text at each line.
+  * gv will reselect the text that was last selected
+
+  Interactive Quiz
+  ----------------
+
+  Delete the +------------------+box that is
+  in between |                  |this text by
+  using the a|                  |wesome visual
+  block mode |                  |you just learned
+  about in th+------------------+is section.
+
+  Comment the following 4 lines by putting a # as the first character in the
+  line:
+
+  x = 0
+  y = 5
+  z = 10
+  return x + y + z
+
+  Delete the square brackets and everything in between [delete all this
+  useless text right now using
+  visual mode]. Note that because the brackets are on different lines, you
+  cannot use di[. You should only use the `d` command once. (This can be
+  completed with exactly 3 key strokes.)
+
+  Indent the text in the for loop to fix the code style (this can be done with
+  visual line mode, or with 3 keystrokes without visual line mode):
+    for (int i=0; i<10; i++)
+    {
+  int bad_style = i;
+  char foo[] = "hello";
+  int indent_me = 1;
+  i--;
+    }
+
+===============================================================================
+R e c o r d i n g  m a c r o s (SECT008)
+===============================================================================
+
+  * q<char> is used to enter recording mode; hitting q in record mode leaves
+    record mode and saves the macro to the specified char
+  * @<char> is used to replay a recorded set of keystrokes
+  * When recording, every keystroke is saved; when the recording is replayed,
+    the same set of keystrokes is executed
+
+  Record yourself going to the beginning of this line and changing the third
+  word to jumping.
+
+  Replay the macro you made above on the following line:
+
+  I love sleeping on the bridge.
+
+  The following lines all need to surrounded in quotes. Record a macro to
+  surround the first line in quotes and replay that macro on each subsequent
+  line to surround them all in quotes.
+
+  this needs to be surrounded in double quotes
+  as does this line
+  and me too!
+  keep going you're doing great
+  I hope you're learning one use case for macros
+  I think this is enough for now.
+
+  Macros are useful for repetitive tasks you perform while editing your files.
+
+===============================================================================
+M a r k s  t o  n a v i g a t e  f i l e s (SECT009)
+===============================================================================
+
+  * m<char> is used to save the cursor position to the specified char
+  * `<char> is used to move the cursor to the position saved in the specified
+    char
+  * this is useful for navigating a file and getting back to where you were
+    making edits
+
+  Try it out by setting a mark at this point in the tutorial, moving around
+  the file, and coming back here.
+
+===============================================================================
+E d i t i n g  m o r e  t h a n  o n e  f i l e (SECT010)
+===============================================================================
+
+    Buffers
+    -------
+      * when a file is opened, vim creates a buffer for that file
+      * :buffers lists all open buffers by the buffer number
+      * :bd <n> closes buffer n; note this command can also take in the name
+        of an open file (you can use tab complete) and will switch to the
+        buffer containing that file. Note there is no real reason to close
+        buffers, unless you have far too many open to handle.
+      * :b <n> switches to buffer n; note this command can also take in the
+        name of an open file (you can use tab complete) and will switch to the
+        buffer containing that file.
+      * :bp goes to the previous buffer and :bn goes to the next buffer
+      * :wa saves all buffers
+      * :e <filename> opens the filename in a new buffer for editing. If there
+        was already an open buffer, that buffer remains open, eventhough the
+        window will display the file you just opened.
+      * Note that if you open a file that already has an open buffer, a new
+        buffer will not be created for that file.
+
+    Multiple Windows
+    ----------------
+      * :vsp opens a new vertical window; :sp opens a new horizontal window
+      * if :vsp or :sp are supplied filenames, they will open that filename in
+        the new window; otherwise they will open the current buffer in the new
+        window
+      * use :q to close the current window. Note that if there is more than one
+        vim window open, the vim session stays open but the window closes. Also
+        note that the file that the buffer containing the file is not closed.
+      * use ctrl-wh to switch one window left, ctrl-wj to go one
+        window down, ctrl-wk to go one window up and ctrl-wl to go one window
+        right
+
+        Mappings
+        --------
+          * ctrl-h goes one window left, ctrl-j goes one window down, ctrl-k
+            goes one window up and ctrl-l goes one window right.
+
+    Interacting With Other Files
+    ----------------------------
+      * :w <filename> saves the current buffer to the given filename. However,
+        it does not open the newly written file.
+      * :r <filename> places the contents of the specified file at the cursor
+        position
+
+    Interactive Quiz
+    ----------------
+
+      In the tutor_files directory are 3 directories (dir1, dir2, dir3) each
+      with some sample files that you can open and edit to help get accostomed
+      to some of the things we learned in this lesson.
+
+      First, use :vsp and tab complete to open tutor_files/dir1/file1.txt in a
+      new window. Notice how tab complete works in vim (slightly different
+      from bash). Now use ctrl-wl (or ctrl-l if you have it mapped) to get
+      back to this window. Go back to the open window and use :q to close it.
+      Notice how that only closes the current window and not the entire vim
+      session.
+
+      Use :buffers to see the open buffers. Notice that file1.txt is still
+      open in its buffer eventhough you closed the window. Use :b<n> (where n
+      is its buffer number) to open that buffer in this window. Remember to
+      use :b<n> to get back to this buffer (n is probably 1 for this buffer).
+
+      Now do ":b file" and hit tab. Watch how you can access buffers by name -
+      any part of the name and tab complete will complete it.
+
+      Try :sp dir2/file1.txt. See how this window places itself. Again, switch
+      windows and play around with this configuration. Eventually close that
+      window.
+
+      Do :buffers again to see the open buffers. Notice now that 3 files are
+      open in their own buffer. Go ahead and play around with the buffers.
+
+===============================================================================
+S e a r c h  a n d  r e p l a c e (SECT011)
+===============================================================================
+
+  * / enters search mode; you can type the keyword to search for then hit
+    enter to search for it; set hlsearch will highlight search results
+      - if hlsearch is set, use :noh to unhighlight search results
+      - Use n to jump to the next occurence of the search term; N jumps to the
+        previous occurence
+  * * searches forward for the word under the cursor; # searches backwards for
+    the word under the cursor
+  * :s<range>/<search_term>/<replace_term>/<options> is the substitute
+    (replace) command. It will replace <replace_term> with <search_term> in
+    the given range
+  * note that <replace_term> can be ommitted; in this case, the <search_term>
+    will simply be deleted rather than replaced
+
+  Options
+  -------
+    - g specifies global i.e. search for and replace every occurence of
+      search_term in the specified range; if g is not specified, then only the
+      first occurence of the search term in the range is replaced
+    - c specifies confirmation i.e. ask for confirmation before performing the
+      replace
+    - i specifies case insensitive search
+    - I specifies case sensitive search
+    - Note that you can combine more than one option; for example, gc means to
+      perform a global search and replace and ask for confirmation before
+      replacing
+
+  Ranges
+  ------
+    - :s is the current line
+    - :%s is the entire file
+    - :3, 6s is everything from line 3 to 6 inclusive
+    - :'a, 'bs is everything from mark a to mark b (see section (SECT ))
+    - When in visual mode, typing :s will perform the search and replace on
+      the currently selected text
+
+  Interactive Quiz
+  ----------------
+
+  Replace every instance of MY_NAME with your real name in the following 4
+  lines:
+
+  Hello, MY_NAME. I'm so glad you could take this tutorial. Now, MY_NAME,
+  hopefully at the end of this tutorial you will be a great vim user. I hope
+  that you, MY_NAME, will love vim just as much as I do. Is MY_NAME having
+  fun? I sure MY_NAME is...
+
+===============================================================================
+M i s c  v i m  t i p s (SECT012)
+===============================================================================
+
+  * :!<cmd> will execute cmd in the shell
+  * hitting : and using the up arrow key will allow you to scroll through past
+    vim commands; doing the same thing with / will allow you to scroll through
+    past vim searches
+  * using a number before a command will repeant that command that many times.
+    So for example, 4dd is the same as deleting the next 4 lines (repeating dd
+    4 times)
+  * In insert mode, use ctrl-n to autocomplete the word. Vim will search in
+    all open buffers when looking for words to autocomplete.
+  * Use ctrl-z to background vim and get to your terminal. Use fg to get back
+    to vim. This is useful for saving stuff like undo history.
+  * If you have my vimrc, typing vim into the terminal will open vim with the
+    exact same buffers open as when you last quit vim.
+
+===============================================================================
+U s e f u l  P l u g i n s (SECT013)
+===============================================================================
+
+  pathogen: https://github.com/tpope/vim-pathogen
+  -----------------------------------------------
+    - Makes installing vim plugins super easy. Just follow the directions in
+      the README to get it!
+
+  ctrlp-vim: https://github.com/kien/ctrlp.vim
+  --------------------------------------------
+    - Very useful plugin for working with a large project over multiple files.
+      Recursively fuzzy searches the current drectory structure for the
+      filename you type in. Use arrow keys to browse search results and enter
+      to open a file in a new buffer.
+
+      If you have this plugin, try it out! Try hitting ctrl-p and start
+      searching for file. Notice how it shows you results eventhough file*.txt
+      is in another directory. Hitting enter opens the file in the current
+      window, but as before it is in its own buffer so you can always change
+      back to this buffer (if you forgot, you can use :buffers to view your
+      current buffers and :b<n> to switch to the right one where n can either
+      be the buffer number or the filename).
+
+      Try typing dir1file (thats right no space) into the ctrl-p prompt and
+      watch how it searches.
+
+  nerdtree: https://github.com/scrooloose/nerdtree
+  ------------------------------------------------
+    - Allows you to browse the current file structure. Use ctrl-n to access
+      it. It opens a new vim window to the left. Play around with it. You can
+      open directories and even files!
+
+  vim-arline: https://github.com/bling/vim-airline
+  ------------------------------------------------
+    - Awesome plugin - gives you a very helpful toolbar at the bottom. Also
+      shows you all your open tabs as well as tab numbers on the top of the
+      vim session.
+
+  syntastic: https://github.com/scrooloose/syntastic
+  --------------------------------------------------
+    - Gives you syntax and other basic compilation checks when you write to a
+      file. Works with Python, C, etc. If you use Python, I highly reccomend
+      installing pyflakes (sudo pip install pyflakes) and setting that as the
+      default checker for Python by adding:
+        `let g:syntastic_python_checkers = ['pyflakes']`
+      to your vimrc.
+
+  vim-fugitive: https://github.com/tpope/vim-fugitive
+  ---------------------------------------------------
+    - Great plugin for git - shows you current git branch and even allows you
+      to do things like :Gblame when editing a file!
+
+===============================================================================
+U s e f u l  m a p p i n g s (SECT014)
+===============================================================================
+  * ctrl-b runs make in the current directory
+  * ,w saves current buffer
+  * ,o opens a URL the cursor is on
+  * space enters search mode (mapped to /)
+  * ,cd switches the working directory to the directory of the current buffer
+  * fp to format paragraph to text width
