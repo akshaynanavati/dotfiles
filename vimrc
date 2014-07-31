@@ -230,7 +230,6 @@ map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
-map cs :noh<cr>
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -320,10 +319,9 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
-map fp gqip
+map <leader>fp gqip
 
 map yw yiw
-map dw diw
 map cw ciw
 map vw viw
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
