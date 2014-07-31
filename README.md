@@ -25,3 +25,9 @@ and import `solarized_dark.itermcolors` from this repo to set up your colorschem
 correctly. If you do not wish to use solarized but you do wish to use my vimrc,
 simply edit the vimrc, search for colorscheme, and change `colorscheme solarized` to
 whichever colorscheme you prefer.
+
+Gitconfig Notes
+---
+
+Currently, the gitconfig file has my name and email in it. You probably want to edit
+the first few lines of this file with your own git name and email.
