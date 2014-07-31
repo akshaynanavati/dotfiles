@@ -12,3 +12,5 @@ export EDITOR=vim
 alias ll="ls -lt"
 alias la="ls -lta"
 alias lr="ls -altr"
+
+function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
