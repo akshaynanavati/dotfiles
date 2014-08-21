@@ -1,6 +1,6 @@
 [user]
-	name = Akshay Nanavati
-	email = ananavat@andrew.cmu.edu
+	name = YOUR-NAME
+	email = YOUR-EMAIL@DOMAIN.COM
 [core]
 	excludesfile = /Users/akshaynanavati/.gitignore
 	editor = /usr/bin/vim
