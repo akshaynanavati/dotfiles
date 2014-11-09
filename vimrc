@@ -50,11 +50,11 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Fast saving
-nmap <leader>w :w!<cr>
-imap <C-w> <Esc>:w!<cr>
+nmap <leader>w :w<cr>
+imap <C-w> <Esc>:w<cr>
 
 " compile with CTRL-b
-map <C-b> :!make<cr>
+map <C-b> :w<cr>:!make<cr>
 
 " Open a browser link
 
@@ -177,9 +177,15 @@ set ffs=unix,dos,mac
 " Use spaces instead of tabs
 set expandtab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
+autocmd FileType python :set shiftwidth=4
+autocmd FileType python :set tabstop=4
+autocmd FileType c :set shiftwidth=4
+autocmd FileType c :set tabstop=4
+autocmd FileType java :set shiftwidth=4
+autocmd FileType java :set tabstop=4
 
 " Linebreak on 500 characters
 set lbr
@@ -304,6 +310,8 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.ml :call DeleteTrailingWS()
+autocmd BufWrite *.java :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 map <leader>fp gqip
@@ -370,6 +378,8 @@ map <leader>pp :setlocal paste!<cr>
 
 " use pyflakes as the default syntax checker for Python
 let g:syntastic_python_checkers = ['pyflakes']
+
+let g:NumberToggleTrigger="<C-k>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions

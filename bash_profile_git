@@ -9,8 +9,8 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export EDITOR=vim
 
-alias ll="ls -lt"
-alias la="ls -lta"
-alias lr="ls -altr"
+alias ll="ls -ltpG"
+alias la="ls -ltapG"
+alias lr="ls -altrpG"
 
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }

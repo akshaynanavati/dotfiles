@@ -74,6 +74,12 @@ H o w  t o  n a v i g a t e  a  f i l e  (SECT003)
           j                  The j key looks like a down arrow.
           v
 
+  Why is hjkl easier? Because when you're touch typing, you do not need to
+  move your hands to the arrow keys when navigating through the file. Believe
+  me once you get the hang of it, it'll be easier. At least for this tutorial,
+  discipline yourself to use hjkl. It might seem tedious at first but its worth
+  it.
+
   1. w to move cursor to start of the next word
   2. e to move cursor to end of next word
   3. b to move cursor to beginning of previous word
