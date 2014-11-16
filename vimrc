@@ -288,7 +288,8 @@ map - $
 
 " map <C-p> :buffers<cr>:b 
 nmap <Ctrl>P ::CtrlPClearCache<CR>
-map <leader>p :buffers<cr>:b 
+map <leader>p "0p
+map <leader>P "0P
 
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -380,6 +381,7 @@ map <leader>pp :setlocal paste!<cr>
 let g:syntastic_python_checkers = ['pyflakes']
 
 let g:NumberToggleTrigger="<C-k>"
+let g:syntastic_java_javac_config_file_enabled=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
