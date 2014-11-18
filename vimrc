@@ -229,6 +229,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+set splitbelow
+set splitright
 
 " Close the current bauffer
 map <leader>bd :Bclose<cr>
@@ -237,18 +239,6 @@ map <leader>bp :bp<cr>
 
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
-
-" Useful mappings for managing tabs
-map <leader>tn :tabedit 
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-" map <leader>n  :tabn<cr>
-" map <leader>p  :tabp<cr>
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -380,7 +370,7 @@ map <leader>pp :setlocal paste!<cr>
 " use pyflakes as the default syntax checker for Python
 let g:syntastic_python_checkers = ['pyflakes']
 
-let g:NumberToggleTrigger="<C-k>"
+let g:NumberToggleTrigger="<leader>n"
 let g:syntastic_java_javac_config_file_enabled=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
