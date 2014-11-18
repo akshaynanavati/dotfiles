@@ -4,8 +4,21 @@ source ~/.git_completion.sh
 # clone from https://github.com/rupa/z.git
 . /Users/akshayn/.zdir/z/z.sh
 
+# Returns "*" if the current git branch is dirty.
+function parse_git_dirty {
+  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
+}
+
+# Returns "|shashed:N" where N is the number of stashed states (if any).
+function parse_git_stash {
+  local stash=`expr $(git stash list 2>/dev/null| wc -l)`
+  if [ "$stash" != "0" ]
+  then
+    echo "|stashed:$stash"
+  fi
+}
 ###Change the terminal prompt
-PS1="[\`if [ \$? = 0 ]; then echo \[\e[32m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`\[\e[0;34m\$(__git_ps1)\[\e[0m\]]\n(\[\e[33m\]\u\[\e[0m\]:\[\e[32m\]\W\[\e[0m\])\$ "
+PS1="[\`if [ \$? = 0 ]; then echo \[\e[32m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`\[\e[0;34m (\$(__git_ps1)\$(parse_git_dirty)\$(parse_git_stash))\[\e[0m\]]\n(\[\e[33m\]\u\[\e[0m\]:\[\e[32m\]\W\[\e[0m\])\$ "
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
