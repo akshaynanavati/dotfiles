@@ -213,6 +213,7 @@ nmap <C-c><C-v> :call setreg("\"",system("pbpaste"))<CR>p
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <C-m> :vsp<cr>:b 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
@@ -231,6 +232,8 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 set splitbelow
 set splitright
+
+map <leader>gf :vertical wincmd f<CR>
 
 " Close the current bauffer
 map <leader>bd :Bclose<cr>
@@ -372,6 +375,8 @@ let g:syntastic_python_checkers = ['pyflakes']
 
 let g:NumberToggleTrigger="<leader>n"
 let g:syntastic_java_javac_config_file_enabled=1
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-x> :w<CR> :SyntasticCheck<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
