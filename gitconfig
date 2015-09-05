@@ -19,6 +19,8 @@
         new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 	recent-branches = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/heads
 	recent-branches-origin = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/remotes/origin
+    ig = update-index --assume-unchanged
+    noig = update-index --no-assume-unchanged
 	re = remote -v
 	st = status
 	sup = "submodule foreach 'git co master; git up'"
