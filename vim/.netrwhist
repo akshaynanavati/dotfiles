@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/srv/nerdwallet/data.nerdwallet/src'
+let g:netrw_dirhist_2='/Users/akshaynanavati'
+let g:netrw_dirhist_3='/srv/nerdwallet/lib-common/lib'
+let g:netrw_dirhist_4='/srv/nerdwallet/app-site'
+let g:netrw_dirhist_5='/srv/nerdwallet/nerdtests'

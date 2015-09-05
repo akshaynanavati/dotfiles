@@ -1,8 +1,6 @@
 # Show git branch in prompt
 source ~/.git_prompt
 source ~/.git_completion.sh
-# clone from https://github.com/rupa/z.git
-. /Users/akshayn/.zdir/z/z.sh
 
 # Returns "*" if the current git branch is dirty.
 function parse_git_dirty {
@@ -29,4 +27,10 @@ alias ll="ls -ltpG"
 alias la="ls -ltapG"
 alias lr="ls -altrpG"
 
+function getpids() { ps aux | grep $1 | awk '{ print $2 }'; }
+function killregex() { kill -9 `getpids $1`; }
+
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"

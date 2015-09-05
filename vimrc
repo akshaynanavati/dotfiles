@@ -70,6 +70,7 @@ endfunction
 map <leader>o :call HandleURI()<CR>
 
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -147,7 +148,7 @@ set t_Co=256
 
 syntax enable 
 set background=dark
-colorscheme solarized
+colorscheme Tomorrow-Night-Eighties
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -177,15 +178,11 @@ set ffs=unix,dos,mac
 " Use spaces instead of tabs
 set expandtab
 
-" 1 tab == 2 spaces
-set shiftwidth=2
-set tabstop=2
-autocmd FileType python :set shiftwidth=4
-autocmd FileType python :set tabstop=4
-autocmd FileType c :set shiftwidth=4
-autocmd FileType c :set tabstop=4
-autocmd FileType java :set shiftwidth=4
-autocmd FileType java :set tabstop=4
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+au FileType javascript setl sw=2 sts=2 et
 
 " Linebreak on 500 characters
 set lbr
@@ -206,14 +203,13 @@ map <leader>k :call LinuxFormatting()<cr>
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
-" Binding ctrl+c / ctrl+v for osx clipboard
+" Binding ctrl+cc / ctrl+vv for osx clipboard
 vmap <C-c><C-c> y:call system("pbcopy", getreg("\""))<CR>
 nmap <C-c><C-v> :call setreg("\"",system("pbpaste"))<CR>p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <C-m> :vsp<cr>:b 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
@@ -370,13 +366,9 @@ map <leader>q :e ~/buffer<cr>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-" use pyflakes as the default syntax checker for Python
-let g:syntastic_python_checkers = ['pyflakes']
 
 let g:NumberToggleTrigger="<leader>n"
-let g:syntastic_java_javac_config_file_enabled=1
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-nnoremap <C-x> :w<CR> :SyntasticCheck<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
@@ -449,3 +441,11 @@ function! LinuxFormatting()
     setlocal formatoptions=tcqlron
     setlocal cinoptions=:0,l1,t0,g0
 endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Python Mode
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pymode_lint_config = '~/.pylintrc'
+let g:pymode_options_max_line_length = 100
+nmap <leader>pd oimport ipdb; ipdb.set_trace()<Esc>
+nmap <leader>Pd Oimport ipdb; ipdb.set_trace()<Esc>
