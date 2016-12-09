@@ -53,11 +53,7 @@ let g:mapleader = ","
 nmap <leader>w :w<cr>
 imap <C-w> <Esc>:w<cr>
 
-" compile with CTRL-b
-map <C-b> :w<cr>:!make<cr>
-
 " Open a browser link
-
 function! HandleURI()
   let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
   echo s:uri
@@ -108,7 +104,7 @@ set smartcase
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw 
@@ -117,7 +113,8 @@ set lazyredraw
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -139,6 +136,7 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
+imap jk <esc>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,7 +146,7 @@ set t_Co=256
 
 syntax enable 
 set background=dark
-colorscheme Tomorrow-Night-Eighties
+colorscheme torte
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -192,7 +190,6 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
-map tw :set tw=78<cr>
 map <leader>k :call LinuxFormatting()<cr>
 
 """"""""""""""""""""""""""""""
@@ -300,6 +297,7 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
 autocmd BufWrite *.ml :call DeleteTrailingWS()
 autocmd BufWrite *.java :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
@@ -309,6 +307,8 @@ map <leader>fp gqip
 map yw yiw
 map cw ciw
 map vw viw
+
+nmap oo o<esc>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -364,7 +364,7 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+nmap <leader>sp :setlocal paste!<cr>i
 
 
 let g:NumberToggleTrigger="<leader>n"
@@ -445,7 +445,10 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python Mode
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pymode_lint_config = '~/.pylintrc'
-let g:pymode_options_max_line_length = 100
 nmap <leader>pd oimport ipdb; ipdb.set_trace()<Esc>
 nmap <leader>Pd Oimport ipdb; ipdb.set_trace()<Esc>
+nmap <leader>pp ofrom pprint import pprint as pp<Esc>
+nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
+au BufReadPost *.py normal!zR
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_post_args="--max-line-length=100"

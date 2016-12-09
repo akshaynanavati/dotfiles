@@ -14,7 +14,7 @@ declare -a dotfile_whitelist=(
   .git_completion.sh\
 )
 
-backup_dir="${HOME}/old_dotfiles"
+backup_dir="${HOME}/dotfiles.bak"
 
 function create_symlink {
   echo "created symlink: $2 -> $1"
