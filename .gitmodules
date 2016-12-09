@@ -19,3 +19,12 @@
 [submodule "vim/bundle/colokschi"]
 	path = vim/bundle/colokschi
 	url = https://github.com/akutschi/vim-colokschi.git
+[submodule "vim/bundle/numbers.vim"]
+	path = vim/bundle/numbers.vim
+	url = https://github.com/myusuf3/numbers.vim
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
