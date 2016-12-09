@@ -19,3 +19,6 @@
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "scm_breeze"]
+	path = scm_breeze
+	url = git://github.com/ndbroadbent/scm_breeze.git
