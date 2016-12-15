@@ -56,7 +56,7 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Set a fast delay until repeat
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
@@ -82,6 +82,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots in JPG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "jpg"
+defaults write com.apple.screencapture location ~/Pictures/screenshots
 
 ###############################################################################
 # Finder                                                                      #

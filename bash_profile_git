@@ -1,6 +1,5 @@
 # Show git branch in prompt
 source ~/.git_prompt
-source ~/.git_completion.sh
 
 # Returns "*" if the current git branch is dirty.
 function parse_git_dirty {
