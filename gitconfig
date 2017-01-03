@@ -1,8 +1,8 @@
 [user]
-	name = YOUR-NAME
-	email = YOUR-EMAIL@DOMAIN.COM
+	name = Akshay Nanavati
+	email = akshay.nanavati1@gmail.com
 [core]
-	excludesfile = /Users/akshaynanavati/.gitignore
+	excludesfile = /Users/akshay/.gitignore
 	editor = /usr/bin/vim
 [rerere]
 	enabled = 1
