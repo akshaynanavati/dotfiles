@@ -28,6 +28,7 @@ alias la="ls -ltapG"
 alias lr="ls -altrpG"
 alias kd='killall Dock'
 alias kc='killall ControlStrip'
+alias gbr='g br'
 
 function getpids() { ps aux | grep $1 | awk '{ print $2 }'; }
 function killregex() { kill -9 `getpids $1`; }
