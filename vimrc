@@ -146,7 +146,6 @@ set t_Co=256
 
 syntax enable 
 set background=dark
-colorscheme torte
 
 " Set extra options when running in GUI mode
 if has("gui_running")

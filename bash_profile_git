@@ -1,5 +1,6 @@
 # Show git branch in prompt
 source ~/.git_prompt
+source ~/.git_completion.sh
 
 # Returns "*" if the current git branch is dirty.
 function parse_git_dirty {
@@ -25,6 +26,8 @@ export EDITOR=vim
 alias ll="ls -ltpG"
 alias la="ls -ltapG"
 alias lr="ls -altrpG"
+alias kd='killall Dock'
+alias kc='killall ControlStrip'
 
 function getpids() { ps aux | grep $1 | awk '{ print $2 }'; }
 function killregex() { kill -9 `getpids $1`; }
