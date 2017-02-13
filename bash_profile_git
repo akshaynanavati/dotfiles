@@ -30,6 +30,8 @@ alias lr="ls -altrpG"
 alias kd='killall Dock'
 alias kc='killall ControlStrip'
 alias gbr='g br'
+alias gcob='gco -b'
+gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
 
 function getpids() { ps aux | grep $1 | awk '{ print $2 }'; }
 function killregex() { kill -9 `getpids $1`; }
