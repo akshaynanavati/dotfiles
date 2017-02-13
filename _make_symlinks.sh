@@ -12,6 +12,7 @@ declare -a dotfile_whitelist=(
   .vimrc\
   .git_prompt\
   .git_completion.sh\
+  .ssh_completion.sh\
   scm_breeze\
 )
 
