@@ -180,6 +180,7 @@ set shiftwidth=4
 set tabstop=4
 
 au FileType javascript setl sw=2 sts=2 et
+au FileType html setl sw=2 sts=2 et
 
 " Linebreak on 500 characters
 set lbr
