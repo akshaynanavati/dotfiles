@@ -31,7 +31,13 @@ alias kd='killall Dock'
 alias kc='killall ControlStrip'
 alias gbr='g br'
 alias gcob='gco -b'
+alias grv='git remote -v'
+alias gr='git reset --'
+alias grs='git reset --soft'
+alias grh='git reset --hard'
+alias gashd='git stash drop'
 gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
+gcpl () { gco $1 && git pull; }
 
 function getpids() { ps aux | grep $1 | awk '{ print $2 }'; }
 function killregex() { kill -9 `getpids $1`; }

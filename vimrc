@@ -3,32 +3,33 @@
 "       Akshay Nanavati
 "
 " Source:
-"       https://github.com/akshayn1107/dotfiles/blob/master/vimrc
+"       https://github.com/akshaynanavati/dotfiles/blob/master/vimrc
 "
 " Based on:
 "       Amir Salihefendic's (http://amix.dk - amix@amix.dk) vimrc version 5.0 found at
 "       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
 "
 " Sections:
-"    -> General
-"    -> VIM user interface
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Moving around, tabs and buffers
-"    -> Status line
-"    -> Editing mappings
-"    -> vimgrep searching and cope displaying
-"    -> Spell checking
-"    -> Misc
-"    -> Helper functions
+"    -> General [GNRL]
+"    -> VIM user interface [VUI]
+"    -> Colors and Fonts [CAF]
+"    -> Files and backups [FAB]
+"    -> Text, tab and indent related [TTIR]
+"    -> Visual mode related [VMR]
+"    -> Moving around, tabs and buffers [MATB]
+"    -> Status line [STATL]
+"    -> Editing mappings [EDMP]
+"    -> vimgrep searching and cope displaying [VSCD]
+"    -> Spell checking [SPLC]
+"    -> Misc [MISC]
+"    -> Helper functions [HLFN]
+"    -> Python Mode [PYMD]
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
+" => General [GNRL]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off
 execute pathogen#infect()
@@ -69,7 +70,7 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
+" => VIM user interface [VUI]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
@@ -137,8 +138,10 @@ augroup CursorLine
 augroup END
 
 imap jk <esc>
+
+set mouse=a
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
+" => Colors and Fonts [CAF]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 
@@ -162,7 +165,7 @@ set encoding=utf8
 set ffs=unix,dos,mac
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
+" => Files, backups and undo [FAB]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 " set nobackup  "
@@ -170,7 +173,7 @@ set ffs=unix,dos,mac
 " set noswapfile"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
+" => Text, tab and indent related [TTIR]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
@@ -193,7 +196,7 @@ set wrap "Wrap lines
 map <leader>k :call LinuxFormatting()<cr>
 
 """"""""""""""""""""""""""""""
-" => Visual mode related
+" => Visual mode related [VMR]
 """"""""""""""""""""""""""""""
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
@@ -205,7 +208,7 @@ vmap <C-c><C-c> y:call system("pbcopy", getreg("\""))<CR>
 nmap <C-c><C-v> :call setreg("\"",system("pbpaste"))<CR>p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
+" => Moving around, tabs, windows and buffers [MATB]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
@@ -254,7 +257,7 @@ autocmd BufReadPost *
 set viminfo^=%
 
 """"""""""""""""""""""""""""""
-" => Status line
+" => Status line [STATL]
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
@@ -266,7 +269,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
+" => Editing mappings [EDMP]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
 map 0 ^
@@ -310,7 +313,7 @@ map vw viw
 
 nmap oo o<esc>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vimgrep searching and cope displaying
+" => vimgrep searching and cope displaying [VSCD]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSelection('gv')<CR>
@@ -342,7 +345,7 @@ map <leader>cp :cp<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking
+" => Spell checking [SPLC]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
@@ -355,7 +358,7 @@ map <leader>s? z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Misc
+" => Misc [MISC]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
@@ -371,7 +374,7 @@ let g:NumberToggleTrigger="<leader>n"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
+" => Helper functions [HLFN]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
@@ -443,7 +446,7 @@ function! LinuxFormatting()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python Mode
+" Python Mode [PYMD]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>pd oimport ipdb; ipdb.set_trace()<Esc>
 nmap <leader>Pd Oimport ipdb; ipdb.set_trace()<Esc>
