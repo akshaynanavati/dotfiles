@@ -36,8 +36,18 @@ alias gr='git reset --'
 alias grs='git reset --soft'
 alias grh='git reset --hard'
 alias gashd='git stash drop'
+alias glno='git log --name-only'
 gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
 gcpl () { gco $1 && git pull; }
+grepr() { 
+  if [ "$#" -eq 1 ]; then
+    grep -r $1 .;
+  elif [ "$#" -eq 2 ]; then
+    grep -r $1 $2;
+  else
+    echo 'Usage: grepr <search-string>[ <dir>]'
+  fi
+}
 
 function getpids() { ps aux | grep $1 | awk '{ print $2 }'; }
 function killregex() { kill -9 `getpids $1`; }
