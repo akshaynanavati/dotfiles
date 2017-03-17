@@ -98,7 +98,7 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -108,7 +108,7 @@ set hlsearch
 set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on
 set magic
@@ -127,7 +127,7 @@ set tm=500
 
 " put $ at end of line
 set list
-set listchars=eol:$,tab:\|\ 
+set listchars=eol:$,tab:\|~
 
 " cursorline only in active buffer
 set cursorline
@@ -147,7 +147,7 @@ set mouse=a
 
 set t_Co=256
 
-syntax enable 
+syntax enable
 set background=dark
 
 " Set extra options when running in GUI mode
@@ -184,6 +184,7 @@ set tabstop=4
 
 au FileType javascript setl sw=2 sts=2 et
 au FileType html setl sw=2 sts=2 et
+au FileType ruby setl sw=2 sts=2 et
 
 " Linebreak on 500 characters
 set lbr
@@ -242,7 +243,7 @@ map <leader>ba :1,1000 bd!<cr>
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
 catch
@@ -275,7 +276,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 map 0 ^
 map - $
 
-" map <C-p> :buffers<cr>:b 
+" map <C-p> :buffers<cr>:b
 nmap <Ctrl>P ::CtrlPClearCache<CR>
 map <leader>p "0p
 map <leader>P "0P
@@ -299,11 +300,7 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.js :call DeleteTrailingWS()
-autocmd BufWrite *.ml :call DeleteTrailingWS()
-autocmd BufWrite *.java :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite * :call DeleteTrailingWS()
 
 map <leader>fp gqip
 
@@ -380,7 +377,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 function! VisualSelection(direction) range
     let l:saved_reg = @"

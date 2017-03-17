@@ -39,13 +39,15 @@ alias gashd='git stash drop'
 alias glno='git log --name-only'
 gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
 gcpl () { gco $1 && git pull; }
-grepr() { 
+grepr() {
   if [ "$#" -eq 1 ]; then
     grep -r $1 .;
   elif [ "$#" -eq 2 ]; then
     grep -r $1 $2;
+  elif [ "$#" -ge 2 ]; then
+    grep -r "${@:3}" $1 $2;
   else
-    echo 'Usage: grepr <search-string>[ <dir>]'
+    echo 'Usage: grepr <search-string>[ <dir>[ <additional args>]]'
   fi
 }
 
