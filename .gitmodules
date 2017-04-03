@@ -22,3 +22,6 @@
 [submodule "scm_breeze"]
 	path = scm_breeze
 	url = git://github.com/ndbroadbent/scm_breeze.git
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
