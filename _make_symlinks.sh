@@ -12,7 +12,8 @@ declare -a dotfile_whitelist=(
   .vimrc\
   .git_prompt\
   .git_completion.sh\
-  .ssh_completion.sh\
+  .fab_completion\
+  .ssh_completion\
   scm_breeze\
 )
 
@@ -27,7 +28,7 @@ cd `dirname $0`
 
 for f in ${dotfile_whitelist[@]}; do
   # In the repo I don't include the leading dot so they're not all hidden
-  if [[ $f =~ ^\. ]] 
+  if [[ $f =~ ^\. ]]
   then
     repo_filename=${f:1}
   else

@@ -1,6 +1,7 @@
 # Show git branch in prompt
 source ~/.git_prompt
 source ~/.git_completion.sh
+source ~/.fab_completion
 source ~/.ssh_completion
 
 # Returns "*" if the current git branch is dirty.

@@ -278,6 +278,7 @@ map - $
 
 " map <C-p> :buffers<cr>:b
 nmap <Ctrl>P ::CtrlPClearCache<CR>
+let g:ctrlp_custom_ignore = '.git,node_modules,venv'
 map <leader>p "0p
 map <leader>P "0P
 
@@ -451,5 +452,6 @@ nmap <leader>pp ofrom pprint import pprint as pp<Esc>
 nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
 au BufReadPost *.py normal!zR
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_post_args="--max-line-length=100"
+let g:syntastic_python_flake8_post_args="--max-line-length=120"
+let g:syntastic_javascript_checkers = ['eslint']
 au! FileType python setl nosmartindent
