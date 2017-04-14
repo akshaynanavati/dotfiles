@@ -24,6 +24,7 @@
 "    -> Misc [MISC]
 "    -> Helper functions [HLFN]
 "    -> Python Mode [PYMD]
+"    -> Linters [LNTR]
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -178,13 +179,9 @@ set ffs=unix,dos,mac
 " Use spaces instead of tabs
 set expandtab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-
-au FileType javascript setl sw=2 sts=2 et
-au FileType html setl sw=2 sts=2 et
-au FileType ruby setl sw=2 sts=2 et
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -451,7 +448,19 @@ nmap <leader>Pd Oimport ipdb; ipdb.set_trace()<Esc>
 nmap <leader>pp ofrom pprint import pprint as pp<Esc>
 nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
 au BufReadPost *.py normal!zR
+au! FileType python setl nosmartindent
+au FileType python setl sw=4 sts=4 et
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Linters [LNTR]
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_post_args="--max-line-length=120"
 let g:syntastic_javascript_checkers = ['eslint']
-au! FileType python setl nosmartindent
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_w = 1
