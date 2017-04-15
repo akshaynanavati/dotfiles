@@ -38,6 +38,7 @@ alias grs='git reset --soft'
 alias grh='git reset --hard'
 alias gashd='git stash drop'
 alias glno='git log --name-only'
+alias grs='git reset --soft'
 gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
 gcpl () { gco $1 && git pull; }
 grepr() {
