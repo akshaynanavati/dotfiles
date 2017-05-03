@@ -1,41 +1,27 @@
 [user]
-	name = Akshay Nanavati
-	email = akshay.nanavati1@gmail.com
+    name = Akshay Nanavati
+    email = akshay.nanavati1@gmail.com
 [core]
-	excludesfile = /Users/akshay/.gitignore
-	editor = /usr/bin/vim
+    excludesfile = /Users/akshay/.gitignore
+    editor = /usr/bin/vim
 [rerere]
-	enabled = 1
+    enabled = 1
 [remote "origin"]
-	push = HEAD
+    push = HEAD
 [branch "master"]
-	merge = refs/heads/master
+    merge = refs/heads/master
 [alias]
-    br = branch
-	ci = commit -a
-	co = checkout
-	dwc = diff -w -M --color-words
-	fix = rebase -i origin/master
-        new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-	recent-branches = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/heads
-	recent-branches-origin = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/remotes/origin
+    recent-branches = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/heads
+    recent-branches-origin = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/remotes/origin
     ig = update-index --assume-unchanged
     noig = update-index --no-assume-unchanged
-	re = remote -v
-	st = status
-	sup = "submodule foreach 'git co master; git up'"
-	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	up = "!git remote update -p; git merge --ff-only @{u}"
-	everything = log --pretty=format: --name-only --diff-filter=A
-        df = diff
-        ds = diff --staged
-        browse = "!hub browse"
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [push]
-	default = current
+    default = current
 [merge]
-	defaultToUpstream = true
+    defaultToUpstream = true
 [color]
-	ui = true
+    ui = true
 [hub]
-	host = github.com
+    host = github.com
 
