@@ -17,6 +17,7 @@ function parse_git_stash {
     echo "|stashed:$stash"
   fi
 }
+
 ###Change the terminal prompt
 PS1="[\`if [ \$? = 0 ]; then echo \[\e[32m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`\[\e[0;34m (\$(__git_ps1)\$(parse_git_dirty)\$(parse_git_stash))\[\e[0m\]]\n(\[\e[33m\]\u\[\e[0m\]:\[\e[32m\]\W\[\e[0m\])\$ "
 
@@ -25,22 +26,12 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export EDITOR=vim
 
+# Unix aliases
 alias ll="ls -ltpG"
 alias la="ls -ltapG"
 alias lr="ls -altrpG"
 alias kd='killall Dock'
 alias kc='killall ControlStrip'
-alias gbr='g br'
-alias gcob='gco -b'
-alias grv='git remote -v'
-alias gr='git reset --'
-alias grs='git reset --soft'
-alias grh='git reset --hard'
-alias gashd='git stash drop'
-alias glno='git log --name-only'
-alias grs='git reset --soft'
-gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
-gcpl () { gco $1 && git pull; }
 grepr() {
   if [ "$#" -eq 1 ]; then
     grep -r $1 .;
@@ -52,11 +43,23 @@ grepr() {
     echo 'Usage: grepr <search-string>[ <dir>[ <additional args>]]'
   fi
 }
-
 function getpids() { ps aux | grep $1 | awk '{ print $2 }'; }
 function killregex() { kill -9 `getpids $1`; }
-
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+# git aliases
+alias gashd='git stash drop'
+alias gbr='g br'
+alias gcob='gco -b'
+alias glg='git log --graph'
+alias gln='git log --stat --graph'
+alias glno='git log --name-only'
+alias gr='git reset --'
+alias grh='git reset --hard'
+alias grs='git reset --soft'
+alias grv='git remote -v'
+gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
+gcpl () { gco $1 && git pull; }
 
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
