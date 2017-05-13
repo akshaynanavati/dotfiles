@@ -1,0 +1,58 @@
+[
+    // Sublime
+    {"keys": ["ctrl+p"], "command": "prompt_select_workspace"},
+
+    // Vim
+	{
+        "keys": ["j", "k"],
+        "command": "_enter_normal_mode",
+        "args": {
+            "mode": "mode_insert"
+        },
+        "context": [{"key": "vi_insert_mode_aware"}]
+    },
+
+    // Advanced new file
+    {
+        "keys": ["ctrl+n", "n"],
+        "command": "advanced_new_file_new",
+    },
+    {
+        "keys": ["ctrl+n", "d"],
+        "command": "advanced_new_file_delete",
+    },
+    {
+        "keys": ["ctrl+n", "m"],
+        "command": "advanced_new_file_move",
+    },
+    {
+        "keys": ["ctrl+n", "c"],
+        "command": "advanced_new_file_cut_to_file",
+    },
+    {
+        "keys": ["ctrl+g"],
+        "command": "goto_definition",
+    },
+    {
+        "keys": ["super+shift+t"],
+        "command": "open_terminal_project_folder",
+    },
+
+    // Origami
+    { "keys": ["ctrl+o", "k"], "command": "travel_to_pane", "args": {"direction": "up"} },
+    { "keys": ["ctrl+o", "l"], "command": "travel_to_pane", "args": {"direction": "right"} },
+    { "keys": ["ctrl+o", "j"], "command": "travel_to_pane", "args": {"direction": "down"} },
+    { "keys": ["ctrl+o", "h"], "command": "travel_to_pane", "args": {"direction": "left"} },
+
+    { "keys": ["ctrl+o", "shift+k"], "command": "carry_file_to_pane", "args": {"direction": "up"} },
+    { "keys": ["ctrl+o", "shift+l"], "command": "carry_file_to_pane", "args": {"direction": "right"} },
+    { "keys": ["ctrl+o", "shift+j"], "command": "carry_file_to_pane", "args": {"direction": "down"} },
+    { "keys": ["ctrl+o", "shift+h"], "command": "carry_file_to_pane", "args": {"direction": "left"} },
+
+    { "keys": ["ctrl+o", "ctrl+k"], "command": "create_pane", "args": {"direction": "up"} },
+    { "keys": ["ctrl+o", "ctrl+l"], "command": "create_pane", "args": {"direction": "right"} },
+    { "keys": ["ctrl+o", "ctrl+j"], "command": "create_pane", "args": {"direction": "down"} },
+    { "keys": ["ctrl+o", "ctrl+h"], "command": "create_pane", "args": {"direction": "left"} },
+
+    { "keys": ["ctrl+o", "d"], "command": "destroy_pane", "args": {"direction": "self"} },
+]

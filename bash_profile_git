@@ -63,3 +63,5 @@ gcpl () { gco $1 && git pull; }
 
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
+
+export SUBL_DIR="$HOME/Library/Application Support/Sublime Text 3/"

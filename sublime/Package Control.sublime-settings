@@ -1,0 +1,30 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Agila Theme",
+		"All Autocomplete",
+		"Babel",
+		"Better CoffeeScript",
+		"BracketHighlighter",
+		"Emmet",
+		"Emmet Css Snippets",
+		"GitGutter",
+		"GitHubinator",
+		"Handlebars",
+		"HTML-CSS-JS Prettify",
+		"Origami",
+		"Package Control",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-rubocop",
+		"SublimeLinter-ruby",
+		"SwapStrings",
+		"Terminal",
+		"Vintageous"
+	]
+}
