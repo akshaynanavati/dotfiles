@@ -18,6 +18,7 @@
 		"GitHubinator",
 		"Handlebars",
 		"HTML-CSS-JS Prettify",
+		"JSX",
 		"Origami",
 		"Package Control",
 		"Rust Enhanced",
@@ -29,6 +30,7 @@
 		"SublimeLinter-ruby",
 		"SwapStrings",
 		"Terminal",
+		"Terraform",
 		"Vintageous"
 	]
 }
