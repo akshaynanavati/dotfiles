@@ -19,6 +19,7 @@
 		"*.zip"
 	],
 	"color_scheme": "Packages/User/SublimeLinter/Agila Oceanic Next (SL).tmTheme",
+	"detect_indentation": false,
 	"file_exclude_patterns":
 	[
 		"*.pyc",
