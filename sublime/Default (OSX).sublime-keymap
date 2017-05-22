@@ -30,9 +30,17 @@
     "command": "advanced_new_file_cut_to_file",
   },
   {
+    "keys": ["ctrl+]"],
+    "command": "jump_forward",
+  },
+  {
+    "keys": ["ctrl+["],
+    "command": "jump_back",
+  },
+  {
     "keys": ["ctrl+g"],
     "command": "goto_definition",
-  },
+  }
 
   // Terminal
   {
