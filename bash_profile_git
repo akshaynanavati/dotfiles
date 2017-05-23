@@ -19,7 +19,7 @@ function parse_git_stash {
 }
 
 ###Change the terminal prompt
-PS1=">> \[\e[0;36m\T\[\e[0m\] [\`if [ \$? = 0 ]; then echo \[\e[32m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`\[\e[0;34m (\$(__git_ps1)\$(parse_git_dirty)\$(parse_git_stash))\[\e[0m\]]\n(\[\e[33m\]\u\[\e[0m\]:\[\e[32m\]\W\[\e[0m\])\$ "
+PS1="\`if [ \$? = 0 ]; then echo \[\e[32m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`\[\e[0;36m [\T] \[\e[0m\]\[\e[0;34m(\$(__git_ps1)\$(parse_git_dirty)\$(parse_git_stash))\[\e[0m\]\n(\[\e[33m\]\u\[\e[0m\]:\[\e[32m\]\W\[\e[0m\])\$ "
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
