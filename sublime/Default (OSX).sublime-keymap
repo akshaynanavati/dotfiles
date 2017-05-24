@@ -36,11 +36,12 @@
   {
     "keys": ["ctrl+["],
     "command": "jump_back",
+    "context": [{"key": "vi_command_mode_aware"}],
   },
   {
     "keys": ["ctrl+g"],
     "command": "goto_definition",
-  }
+  },
 
   // Terminal
   {
