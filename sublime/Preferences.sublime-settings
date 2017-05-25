@@ -57,7 +57,7 @@
   [
     "Vintage"
   ],
-  "rulers": [120],
+  "rulers": [100],
   "tab_size": 2,
   "theme": "Agila.sublime-theme",
   "translate_tabs_to_spaces": true,
