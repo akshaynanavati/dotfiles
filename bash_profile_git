@@ -61,6 +61,12 @@ alias grv='git remote -v'
 gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
 gcpl () { gco $1 && git pull; }
 
+# vagrant aliases
+alias v='vagrant'
+alias vup='vagrant up --provision && vagrant ssh'
+alias vs='vagrant suspend'
+alias vssh='vagrant ssh'
+
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
 
