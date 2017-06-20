@@ -80,3 +80,15 @@ for f in ${dotfile_whitelist[@]}; do
     continue
   fi
 done
+
+mkdir -p "$HOME/.emacs.d"
+# doesn't exist yet, create symlink
+if [ -h "$HOME/.emacs.d/init.el" ]
+then
+  echo "file $HOME/.emacs.d/init.el already exists"
+fi
+
+if [ ! -a "$HOME/.emacs.d/init.el" ]
+then
+  create_symlink "$(pwd)/emacs.d/init.el" "$HOME/.emacs.d/init.el"
+fi
