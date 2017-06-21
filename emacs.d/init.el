@@ -40,6 +40,11 @@
 (use-package rust-mode
   :ensure t)
 
+(use-package monokai-theme
+  :ensure t)
+
+(load-theme 'monokai t)
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq-default tab-width 4)
