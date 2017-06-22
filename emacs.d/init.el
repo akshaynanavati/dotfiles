@@ -49,6 +49,14 @@
 (use-package monokai-theme
   :ensure t)
 
+(use-package flycheck
+  :ensure t)
+(global-flycheck-mode)
+
+(use-package exec-path-from-shell
+  :ensure t)
+(exec-path-from-shell-initialize)
+
 (load-theme 'monokai t)
 
 (use-package auto-complete
