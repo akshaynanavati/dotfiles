@@ -92,3 +92,7 @@ if [ ! -a "$HOME/.emacs.d/init.el" ]
 then
   create_symlink "$(pwd)/emacs.d/init.el" "$HOME/.emacs.d/init.el"
 fi
+
+if [ ! -d "$HOME/bin" ]; then
+  mkdir -p "$HOME/bin"
+fi

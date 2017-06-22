@@ -40,6 +40,12 @@
 (use-package rust-mode
   :ensure t)
 
+(use-package cider
+  :ensure t)
+
+(use-package neotree
+  :ensure t)
+
 (use-package monokai-theme
   :ensure t)
 
