@@ -1,6 +1,6 @@
 [
   // Sublime
-  {"keys": ["ctrl+p"], "command": "prompt_select_workspace"},
+  {"keys": ["ctrl+shift+p"], "command": "prompt_select_workspace"},
 
   // Vim
   {
