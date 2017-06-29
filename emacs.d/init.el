@@ -73,6 +73,9 @@
 (use-package terraform-mode
   :ensure t)
 
+(use-package company
+  :ensure t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Editor Preferences
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -109,6 +112,10 @@
                     'cider-repl-clear-buffer)))
 
 (add-hook 'cider-repl-mode-hook #'eldoc-mode)
+
+(add-hook 'cider-repl-mode-hook #'company-mode)
+(add-hook 'cider-mode-hook #'company-mode)
+
 
 (provide 'init)
 ;;;
