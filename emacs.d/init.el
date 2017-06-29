@@ -71,7 +71,12 @@
   (lambda ()
     (setq tab-width 2)))
 
+(add-hook 'c-mode-hook
+          (lambda ()
+            (set-key (kbd "C-x C-k") 'compile)))
+
 (global-set-key (kbd "C-x f") 'fiplr-find-file)
+(global-set-key (kbd "C-x t") 'neotree-toggle)
 
 (setq fiplr-ignored-globs '((directories (".git" ".svn" "target" ".vagrant"))
                             (files ("*.log" "*.jpg" "*.png" "*.zip" "*~"))))
