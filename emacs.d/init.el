@@ -75,6 +75,10 @@
           (lambda ()
             (set-key (kbd "C-x C-k") 'compile)))
 
+(add-hook 'cider-repl-mode-hook
+      '(lambda () (define-key cider-repl-mode-map (kbd "C-x c")
+            'cider-repl-clear-buffer)))
+
 (global-set-key (kbd "C-x f") 'fiplr-find-file)
 (global-set-key (kbd "C-x t") 'neotree-toggle)
 
