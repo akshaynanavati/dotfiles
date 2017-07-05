@@ -12,7 +12,6 @@
 		"Babel",
 		"Better CoffeeScript",
 		"BracketHighlighter",
-		"Emacs Pro Essentials",
 		"Emmet",
 		"Emmet Css Snippets",
 		"GitGutter",
@@ -31,6 +30,7 @@
 		"SublimeLinter-ruby",
 		"SwapStrings",
 		"Terminal",
-		"Terraform"
+		"Terraform",
+		"Vintageous"
 	]
 }
