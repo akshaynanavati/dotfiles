@@ -10,6 +10,7 @@
 "       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
 "
 " Sections:
+"    -> Plugins [PLGN]
 "    -> General [GNRL]
 "    -> VIM user interface [VUI]
 "    -> Colors and Fonts [CAF]
@@ -28,15 +29,34 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins [PLGN]
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+set rtp+=~/.fzf
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
+Plug 'w0rp/ale'
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+let NERDTreeIgnore = ['\.pyc$', '\.o$']
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
+
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General [GNRL]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off
-execute pathogen#infect()
 
 " Sets how many lines of history VIM has to remember
-set history=700
+set history=1000
 
 " Enable filetype plugins
 filetype plugin on
@@ -66,9 +86,6 @@ function! HandleURI()
   endif
 endfunction
 map <leader>o :call HandleURI()<CR>
-
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface [VUI]
@@ -140,7 +157,6 @@ augroup END
 
 imap jk <esc>
 
-set mouse=a
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts [CAF]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -179,9 +195,9 @@ set ffs=unix,dos,mac
 " Use spaces instead of tabs
 set expandtab
 
-" 1 tab == 2 spaces
-set shiftwidth=2
-set tabstop=2
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
 
 " Linebreak on 500 characters
 set lbr
@@ -253,17 +269,17 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
+nmap ; :Buffers<CR>
+nmap <leader>p :Files<CR>
+nmap <leader>r :Tags<CR>
+
+map <C-n> :NERDTreeToggle<CR>
+
 """"""""""""""""""""""""""""""
 " => Status line [STATL]
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
-
-" Format the status line
-" set statusline=\ %{HasPaste()}%f%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l:%c
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings [EDMP]
@@ -272,9 +288,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 map 0 ^
 map - $
 
-" map <C-p> :buffers<cr>:b
-nmap <Ctrl>P ::CtrlPClearCache<CR>
-let g:ctrlp_custom_ignore = '.git,node_modules,venv'
 map <leader>p "0p
 map <leader>P "0P
 
@@ -319,7 +332,7 @@ map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
 map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
 
 " When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
+" vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
 " Do :help cope if you are unsure what cope is. It's super useful!
 "
@@ -336,6 +349,8 @@ map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>cn :cn<cr>
 map <leader>cp :cp<cr>
+
+let g:ackprg = 'ag --vimgrep'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -454,12 +469,3 @@ au FileType python setl sw=4 sts=4 et
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters [LNTR]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_post_args="--max-line-length=120"
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_check_on_w = 1

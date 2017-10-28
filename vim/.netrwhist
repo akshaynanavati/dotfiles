@@ -1,7 +1,7 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/srv/nerdwallet/data.nerdwallet/src'
-let g:netrw_dirhist_2='/Users/akshaynanavati'
-let g:netrw_dirhist_3='/srv/nerdwallet/lib-common/lib'
-let g:netrw_dirhist_4='/srv/nerdwallet/app-site'
-let g:netrw_dirhist_5='/srv/nerdwallet/nerdtests'
+let g:netrw_dirhist_1='/Users/akshay/Projects/locamo/api'
+let g:netrw_dirhist_2='/Users/akshay/Projects/locamo/api/tests'
+let g:netrw_dirhist_3='/Users/akshay/Projects/locamo/api'
+let g:netrw_dirhist_4='/Users/akshay/Projects/locamo/api/src'
+let g:netrw_dirhist_5='/Users/akshay/Projects/locamo/api'
