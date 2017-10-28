@@ -1,4 +1,5 @@
 # Show git branch in prompt
+source ~/.bash_profile_shared
 source ~/.git_prompt
 source ~/.git_completion.sh
 source ~/.fab_completion
@@ -21,32 +22,6 @@ function parse_git_stash {
 ###Change the terminal prompt
 PS1="\`if [ \$? = 0 ]; then echo \[\e[32m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`\[\e[0;36m [\T] \[\e[0m\]\[\e[0;34m(\$(__git_ps1)\$(parse_git_dirty)\$(parse_git_stash))\[\e[0m\]\n(\[\e[33m\]\u\[\e[0m\]:\[\e[32m\]\W\[\e[0m\])\$ "
 
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
-export EDITOR=vim
-
-# Unix aliases
-alias ll="ls -ltpG"
-alias la="ls -ltapG"
-alias lr="ls -altrpG"
-alias kd='killall Dock'
-alias kc='killall ControlStrip'
-grepr() {
-  if [ "$#" -eq 1 ]; then
-    grep -r $1 .;
-  elif [ "$#" -eq 2 ]; then
-    grep -r $1 $2;
-  elif [ "$#" -ge 2 ]; then
-    grep -r "${@:3}" $1 $2;
-  else
-    echo 'Usage: grepr <search-string>[ <dir>[ <additional args>]]'
-  fi
-}
-function getpids() { ps aux | grep $1 | awk '{ print $2 }'; }
-function killregex() { kill -9 `getpids $1`; }
-function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
-
 # git aliases
 alias gashd='git stash drop'
 alias gbr='g br'
@@ -67,8 +42,3 @@ alias vup='vagrant up --provision && vagrant ssh'
 alias vs='vagrant suspend'
 alias vssh='vagrant ssh'
 
-bind "set completion-ignore-case on"
-bind "set show-all-if-ambiguous on"
-
-export SUBL_DIR="$HOME/Library/Application Support/Sublime Text 3/"
-export PATH="$PATH:$HOME/bin"

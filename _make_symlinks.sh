@@ -1,11 +1,14 @@
 #!/bin/bash
 
+set -e
+
 # Install all the dotfiles in this directory (symlink them into place)
 # When a file already exists, copy it to an "old_dotfiles" directory first
 # When a symlink already exists, replace it
 
 declare -a dotfile_whitelist=(
   .bash_profile_git\
+  .bash_profile_shared\
   .gitconfig\
   .gitignore\
   .vim\
