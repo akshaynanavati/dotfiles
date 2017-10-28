@@ -22,7 +22,7 @@
  '(custom-enabled-themes (quote (wombat)))
  '(package-selected-packages
    (quote
-    (company terraform-mode auto-complete rust-mode fiplr helm use-package))))
+    (evil company terraform-mode auto-complete rust-mode fiplr helm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
