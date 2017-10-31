@@ -102,6 +102,13 @@ set wildignore=*.o,*~,*.pyc
 "Always show current position
 set ruler
 set number
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " Height of the command bar
 set cmdheight=2
@@ -270,7 +277,7 @@ autocmd BufReadPost *
 set viminfo^=%
 
 nmap ; :Buffers<CR>
-nmap <leader>p :Files<CR>
+nmap <leader>t :Files<CR>
 nmap <leader>r :Tags<CR>
 
 map <C-n> :NERDTreeToggle<CR>
