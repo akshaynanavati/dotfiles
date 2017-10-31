@@ -88,6 +88,8 @@ function! HandleURI()
 endfunction
 map <leader>o :call HandleURI()<CR>
 
+au InsertLeave * silent! wa
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface [VUI]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
