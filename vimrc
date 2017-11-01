@@ -280,7 +280,7 @@ autocmd BufReadPost *
 set viminfo^=%
 
 nmap ; :Buffers<CR>
-nmap <leader>t :Files<CR>
+nmap <C-p> :Files<CR>
 nmap <leader>r :Tags<CR>
 
 map <C-n> :NERDTreeToggle<CR>
