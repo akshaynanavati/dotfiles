@@ -1,5 +1,5 @@
 ###Change the terminal prompt
-PS1="[Exit: \[\033[1;31m\]\${PIPESTATUS[@]/#0/\[\033[0m\]\[\033[1;32m\]0\[\033[1;31m\]}\[\033[0m\]] \T \[\e[0m\]\n(\[\e[33m\]\u\[\e[0m\]:\[\e[32m\]\W\[\e[0m\])\$ "
+PS1="[Exit: \[\033[1;31m\]\${PIPESTATUS[@]/#0/\[\033[0m\]\[\033[1;32m\]0\[\033[1;31m\]}\[\033[0m\]]\n\T \[\e[0m\](\[\e[33m\]\u\[\e[0m\]:\[\e[32m\]\W\[\e[0m\])\$ "
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
