@@ -73,8 +73,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Fast saving
-nmap <leader>w :w<cr>
-imap <C-w> <Esc>:w<cr>
+map <C-s> <Esc>:w<cr>
 
 " Open a browser link
 function! HandleURI()
@@ -285,6 +284,12 @@ nmap <leader>r :Tags<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 
+nmap <leader>= <C-w>=
+nmap <leader>w :exe "vertical resize +10"<CR>
+nmap <leader>n :exe "vertical resize -10"<CR>
+nmap <leader>t :exe "horizontal resize +10"<CR>
+nmap <leader>s :exe "horizontal resize -10"<CR>
+
 """"""""""""""""""""""""""""""
 " => Status line [STATL]
 """"""""""""""""""""""""""""""
@@ -391,10 +396,6 @@ map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
 nmap <leader>sp :setlocal paste!<cr>i
-
-
-let g:NumberToggleTrigger="<leader>n"
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions [HLFN]
