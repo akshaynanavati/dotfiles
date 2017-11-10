@@ -316,6 +316,10 @@ endif
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
+  if expand('%') =~ 'vimrc'
+    return
+  endif
+
   exe "normal mz"
   %s/\s\+$//ge
   exe "normal `z"
@@ -474,7 +478,7 @@ nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
 au BufReadPost *.py normal!zR
 au! FileType python setl nosmartindent
 au FileType python setl sw=4 sts=4 et
-
+au FileType go set listchars=eol:$,tab:\|\ 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters [LNTR]
