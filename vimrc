@@ -24,7 +24,7 @@
 "    -> Spell checking [SPLC]
 "    -> Misc [MISC]
 "    -> Helper functions [HLFN]
-"    -> Python Mode [PYMD]
+"    -> Language Specific [LASP]
 "    -> Linters [LNTR]
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -72,9 +72,6 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
-map <C-s> <Esc>:w<cr>
-
 " Open a browser link
 function! HandleURI()
   let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
@@ -87,7 +84,7 @@ function! HandleURI()
 endfunction
 map <leader>o :call HandleURI()<CR>
 
-au InsertLeave * silent! wa
+au InsertLeave * wa
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface [VUI]
@@ -470,7 +467,7 @@ function! LinuxFormatting()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python Mode [PYMD]
+" Language Specific [LASP]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>pd oimport ipdb; ipdb.set_trace()<Esc>
 nmap <leader>Pd Oimport ipdb; ipdb.set_trace()<Esc>
@@ -479,7 +476,11 @@ nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
 au BufReadPost *.py normal!zR
 au! FileType python setl nosmartindent
 au FileType python setl sw=4 sts=4 et
+
 au FileType go set listchars=eol:$,tab:\|\ 
+let g:go_fmt_fail_silently = 1
+set cino=N-s
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters [LNTR]
