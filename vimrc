@@ -47,7 +47,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
-
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
