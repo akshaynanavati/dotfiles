@@ -47,7 +47,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
@@ -83,8 +82,6 @@ function! HandleURI()
   endif
 endfunction
 map <leader>o :call HandleURI()<CR>
-
-au InsertLeave * wa
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface [VUI]
@@ -169,6 +166,7 @@ imap jk <esc>
 " Enable syntax highlighting
 
 set t_Co=256
+colorscheme darkblue
 
 syntax enable
 set background=dark
