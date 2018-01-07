@@ -475,6 +475,8 @@ nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
 au BufReadPost *.py normal!zR
 au! FileType python setl nosmartindent
 au FileType python setl sw=4 sts=4 et
+au FileType cpp setl sw=2 sts=2 et
+au FileType c setl sw=2 sts=2 et
 
 au FileType go set listchars=eol:$,tab:\|\ 
 let g:go_fmt_fail_silently = 1
