@@ -391,7 +391,7 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
-nmap <leader>sp :setlocal paste!<cr>i
+nmap <leader>sp :setlocal paste!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions [HLFN]
@@ -484,3 +484,7 @@ set cino=N-s
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters [LNTR]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_fixers = {
+\   'cpp': ['clang-format'],
+\}
+let g:ale_fix_on_save = 1
