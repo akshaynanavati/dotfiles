@@ -1,3 +1,6 @@
+set -o vi
+bind '"jk":vi-movement-mode'
+
 ###Change the terminal prompt
 
 _dir_chomp() {

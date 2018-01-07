@@ -19,6 +19,7 @@ declare -a dotfile_whitelist=(
   .ssh_completion\
   scm_breeze\
   .fzf\
+  .inputrc\
 )
 
 backup_dir="${HOME}/dotfiles.bak"
