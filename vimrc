@@ -490,3 +490,5 @@ let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \}
 let g:ale_fix_on_save = 1
+
+execute printf('source %s/%s', $HOME, '.vimrc.local')

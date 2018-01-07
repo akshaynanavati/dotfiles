@@ -9,7 +9,6 @@ set -e
 declare -a dotfile_whitelist=(
   .bash_profile_git\
   .bash_profile_shared\
-  .gitconfig\
   .gitignore\
   .vim\
   .vimrc\
