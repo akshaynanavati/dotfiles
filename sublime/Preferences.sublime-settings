@@ -19,7 +19,6 @@
 		"*.jar",
 		"*.zip"
 	],
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"detect_indentation": false,
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
@@ -63,7 +62,6 @@
 		120
 	],
 	"tab_size": 4,
-	"theme": "Agila.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
