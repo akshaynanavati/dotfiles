@@ -72,18 +72,6 @@ set autowriteall
 let mapleader = ","
 let g:mapleader = ","
 
-" Open a browser link
-function! HandleURI()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
-  echo s:uri
-  if s:uri != ""
-    exec "!open \"" . s:uri . "\""
-  else
-    echo "No URI found in line."
-  endif
-endfunction
-map <leader>o :call HandleURI()<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface [VUI]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -225,6 +213,9 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 vmap <C-c><C-c> y:call system("pbcopy", getreg("\""))<CR>
 nmap <C-c><C-v> :call setreg("\"",system("pbpaste"))<CR>p
 
+vnoremap < <gv
+vnoremap > >gv
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers [MATB]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -232,9 +223,7 @@ nmap <C-c><C-v> :call setreg("\"",system("pbpaste"))<CR>p
 map j gj
 map k gk
 
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
+nmap F <Plug>(easymotion-prefix)s
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -274,8 +263,9 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-nmap ; :Buffers<CR>
-nmap <C-p> :Files<CR>
+nmap <space> :Buffers<CR>
+" nmap <C-p> :Files<CR>
+nnoremap <C-p> :GFiles<CR>
 nmap <leader>r :Tags<CR>
 
 map <C-n> :NERDTreeToggle<CR>
@@ -329,11 +319,9 @@ autocmd BufWrite * :call DeleteTrailingWS()
 
 map <leader>fp gqip
 
-map yw yiw
-map cw ciw
-map vw viw
+map <leader>o o<esc>
+nnoremap <leader>u :GitGutterUndoHunk<CR>
 
-nmap oo o<esc>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying [VSCD]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
