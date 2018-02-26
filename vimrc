@@ -47,6 +47,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -155,7 +156,7 @@ imap jk <esc>
 " Enable syntax highlighting
 
 set t_Co=256
-colorscheme darkblue
+colorscheme hybrid
 
 syntax enable
 set background=dark
