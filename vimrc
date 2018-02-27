@@ -156,6 +156,7 @@ imap jk <esc>
 " Enable syntax highlighting
 
 set t_Co=256
+let g:hybrid_custom_term_colors = 1
 colorscheme hybrid
 
 syntax enable
