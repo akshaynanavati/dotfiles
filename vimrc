@@ -48,6 +48,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'w0ng/vim-hybrid'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -271,12 +272,11 @@ nnoremap <C-p> :GFiles<CR>
 nmap <leader>r :Tags<CR>
 
 map <C-n> :NERDTreeToggle<CR>
+map <leader>t :TagbarToggle<CR>
 
 nmap <leader>= <C-w>=
 nmap <leader>w :exe "vertical resize +10"<CR>
 nmap <leader>n :exe "vertical resize -10"<CR>
-nmap <leader>t :exe "horizontal resize +10"<CR>
-nmap <leader>s :exe "horizontal resize -10"<CR>
 
 """"""""""""""""""""""""""""""
 " => Status line [STATL]
