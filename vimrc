@@ -71,8 +71,8 @@ set autowriteall
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = ";"
+let g:mapleader = ";"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface [VUI]
@@ -266,7 +266,7 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-nmap <space> :Buffers<CR>
+nmap <space> :
 " nmap <C-p> :Files<CR>
 nnoremap <C-p> :GFiles<CR>
 nmap <leader>r :Tags<CR>
