@@ -242,9 +242,8 @@ set splitright
 map <leader>gf :vertical wincmd f<CR>
 
 " Close the current bauffer
-map <leader>bd :Bclose<cr>
-map <leader>bn :bn<cr>
-map <leader>bp :bp<cr>
+map <leader>c :Bclose<cr>
+map <leader>b :Buffers<cr>
 
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
@@ -350,10 +349,10 @@ map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><r
 " To go to the previous search results do:
 "   <leader>p
 "
-map <leader>cc :botright cope<cr>
-map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <leader>cn :cn<cr>
-map <leader>cp :cp<cr>
+" map <leader>cc :botright cope<cr>
+" map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
+" map <leader>cn :cn<cr>
+" map <leader>cp :cp<cr>
 
 let g:ackprg = 'ag --vimgrep'
 
