@@ -49,6 +49,7 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'w0ng/vim-hybrid'
 Plug 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 
 call plug#end()
 
@@ -322,6 +323,7 @@ map <leader>fp gqip
 
 map <leader>o o<esc>
 nnoremap <leader>u :GitGutterUndoHunk<CR>
+map <C-I> :YcmCompleter FixIt<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying [VSCD]
@@ -478,6 +480,12 @@ set cino=N-s
 let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \}
+
+let g:ale_linters = {
+\   'cpp': [],
+\   'py': [],
+\}
+
 let g:ale_fix_on_save = 1
 
 execute printf('source %s/%s', $HOME, '.vimrc.local')
