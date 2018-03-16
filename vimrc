@@ -272,7 +272,8 @@ nnoremap <C-p> :GFiles<CR>
 nmap <leader>r :Tags<CR>
 
 map <C-n> :NERDTreeToggle<CR>
-map <leader>t :TagbarToggle<CR>
+nmap <leader>t :TagbarToggle<CR>
+nmap <C-t> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 nmap <leader>= <C-w>=
 nmap <leader>w :exe "vertical resize +10"<CR>
@@ -477,6 +478,10 @@ set cino=N-s
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters [LNTR]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_error_symbol = 'x'
+let g:ycm_warning_symbol = '!'
 let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \}
