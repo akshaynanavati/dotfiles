@@ -46,4 +46,4 @@ shopt -s histappend
 set -o history
 export HISTFILESIZE=-1
 export HISTSIZE=130000
-export PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND='history -a; history -r'
