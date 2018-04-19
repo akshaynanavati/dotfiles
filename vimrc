@@ -272,12 +272,15 @@ nnoremap <C-p> :GFiles<CR>
 nmap <leader>r :Tags<CR>
 
 map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeFind<CR>
 nmap <leader>t :TagbarToggle<CR>
 nmap <C-t> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 nmap <leader>= <C-w>=
-nmap <leader>w :exe "vertical resize +10"<CR>
-nmap <leader>n :exe "vertical resize -10"<CR>
+nmap <leader>f :exe "vertical resize +10"<CR>
+nmap <leader>a :exe "vertical resize -10"<CR>
+nmap <leader>d :exe "resize -10"<CR>
+nmap <leader>s :exe "resize +10"<CR>
 
 """"""""""""""""""""""""""""""
 " => Status line [STATL]
