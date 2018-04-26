@@ -48,3 +48,5 @@ export HISTFILESIZE=-1
 export HISTSIZE=130000
 export PROMPT_COMMAND='history -a; history -r'
 unset HISTTIMEFORMAT
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
