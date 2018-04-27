@@ -488,6 +488,7 @@ let g:ycm_error_symbol = 'x'
 let g:ycm_warning_symbol = '!'
 let g:ale_fixers = {
 \   'cpp': ['clang-format'],
+\   'c': ['clang-format'],
 \   'py': ['autopep8'],
 \}
 
