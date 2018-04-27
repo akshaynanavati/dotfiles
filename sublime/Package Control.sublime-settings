@@ -23,13 +23,13 @@
 		"ScopeHunter",
 		"SublimeCodeIntel",
 		"SublimeLinter",
-		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-flake8",
 		"SublimeLinter-rubocop",
 		"SublimeLinter-ruby",
 		"SwapStrings",
 		"Terminal",
 		"Terraform",
-		"Vintageous"
+		"Vintageous",
+		"SublimeLinter-eslint"
 	]
 }

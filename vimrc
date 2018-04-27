@@ -50,6 +50,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'w0ng/vim-hybrid'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -490,11 +491,13 @@ let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \   'c': ['clang-format'],
 \   'py': ['autopep8'],
+\   'rust': ['rustfmt'],
 \}
 
 let g:ale_linters = {
 \   'cpp': [],
 \   'py': [],
+\   'rust': ['cargo'],
 \}
 
 let g:ale_fix_on_save = 1
