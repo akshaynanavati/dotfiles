@@ -19,6 +19,7 @@ declare -a dotfile_whitelist=(
   scm_breeze\
   .fzf\
   .inputrc\
+  .fdignore\
 )
 
 backup_dir="${HOME}/dotfiles.bak"
