@@ -165,28 +165,12 @@ colorscheme hybrid
 syntax enable
 set background=dark
 
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 highlight LineNr ctermfg=lightgray
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo [FAB]
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-" set nobackup  "
-" set nowb      "
-" set noswapfile"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related [TTIR]
@@ -231,9 +215,6 @@ map k gk
 
 nmap F <Plug>(easymotion-prefix)s
 
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -244,23 +225,13 @@ set splitright
 
 map <leader>gf :vertical wincmd f<CR>
 
-" Close the current bauffer
-map <leader>c :Bclose<cr>
-map <leader>b :Buffers<cr>
-
-" Close all the buffers
-map <leader>ba :1,1000 bd!<cr>
-
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
-try
-  set switchbuf=useopen,usetab,newtab
-catch
-endtry
+set swb=useopen
 
-" Return to last edit position when opening files (You want this!)
+" Return to last edit position when opening files
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
@@ -269,8 +240,8 @@ autocmd BufReadPost *
 set viminfo^=%
 
 map ; :
-nmap <C-p> :Files<CR>
-nmap <leader>r :Tags<CR>
+
+nnoremap <C-p> :Files<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
@@ -299,20 +270,7 @@ map - $
 map <leader>p "0p
 map <leader>P "0P
 
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
-endif
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+" Delete trailing white space on save, useful for Python
 func! DeleteTrailingWS()
   if expand('%') =~ 'vimrc'
     return
@@ -324,8 +282,6 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite * :call DeleteTrailingWS()
 
-map <leader>fp gqip
-
 map <leader>o o<esc>
 nnoremap <leader>u :GitGutterUndoHunk<CR>
 map <C-I> :YcmCompleter FixIt<CR>
@@ -333,55 +289,13 @@ map <C-I> :YcmCompleter FixIt<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying [VSCD]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSelection('gv')<CR>
 
-" Open vimgrep and put the cursor in the right position
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
-
-" Vimgreps in the current file
-map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
-
-" When you press <leader>r you can search and replace the selected text
-" vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
-
-" Do :help cope if you are unsure what cope is. It's super useful!
-"
-" When you search with vimgrep, display your results in cope by doing:
-"   <leader>cc
-"
-" To go to the next search result do:
-"   <leader>n
-"
-" To go to the previous search results do:
-"   <leader>p
-"
-" map <leader>cc :botright cope<cr>
-" map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-" map <leader>cn :cn<cr>
-" map <leader>cp :cp<cr>
-
+nnoremap <leader>g :Ack!<Space>$
 let g:ackprg = 'ag --vimgrep'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking [SPLC]
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
-
-" Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc [MISC]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scripbble
 map <leader>q :e ~/buffer<cr>
@@ -419,14 +333,6 @@ function! VisualSelection(direction) range
     let @" = l:saved_reg
 endfunction
 
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
