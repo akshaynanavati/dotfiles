@@ -93,6 +93,14 @@ then
   echo "file $HOME/.emacs.d/init.el already exists"
 fi
 
+mkdir -p "$HOME/bash_history_git"
+if [ ! -a "$HOME/bash_history_git/remove_dups.sh" ]
+then
+  create_symlink "$(pwd)/bash_history/remove_dups.sh" "$HOME/bash_history_git/remove_dups.sh"
+  mv "$HOME/.bash_history" "$HOME/bash_history_git" && create_symlink "$HOME/bash_history_git/.bash_history" "$HOME/.bash_history"
+fi
+
+
 if [ ! -a "$HOME/.emacs.d/init.el" ]
 then
   create_symlink "$(pwd)/emacs.d/init.el" "$HOME/.emacs.d/init.el"
