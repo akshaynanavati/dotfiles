@@ -39,7 +39,7 @@ gcpl () { gco $1 && git pull; }
 
 # vagrant aliases
 alias v='vagrant'
-alias vup='vagrant up --provision && vagrant ssh'
+alias vup='vagrant up && vagrant ssh'
 alias vs='vagrant suspend'
 alias vssh='vagrant ssh'
 
