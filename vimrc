@@ -218,8 +218,6 @@ map <C-l> <C-W>l
 set splitbelow
 set splitright
 
-map <leader>gf :vertical wincmd f<CR>
-
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
