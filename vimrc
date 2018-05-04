@@ -46,7 +46,6 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
 Plug 'w0ng/vim-hybrid'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
@@ -71,8 +70,6 @@ filetype on
 set autoread
 set autowriteall
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
 let mapleader = ' '
 let g:mapleader = ' '
 
@@ -170,6 +167,8 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+" Make other lines light gray
 highlight LineNr ctermfg=lightgray
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -188,8 +187,6 @@ set tw=0
 
 set ai "Auto indent
 set wrap "Wrap lines
-
-map <leader>k :call LinuxFormatting()<cr>
 
 """"""""""""""""""""""""""""""
 " => Visual mode related [VMR]
@@ -212,8 +209,6 @@ vnoremap > >gv
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
-
-nmap F <Plug>(easymotion-prefix)s
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -239,14 +234,12 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-map ; :
-
 nnoremap <C-p> :Files<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 nmap <leader>t :TagbarToggle<CR>
-nmap <C-t> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <leader>] :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 nmap <leader>= <C-w>=
 nmap <leader>f :exe "vertical resize +10"<CR>
@@ -263,10 +256,6 @@ set laststatus=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings [EDMP]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to first non-blank character
-map 0 ^
-map - $
-
 map <leader>p "0p
 map <leader>P "0P
 
