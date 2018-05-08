@@ -14,10 +14,6 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export EDITOR=vim
 
-# Unix aliases
-alias ll="ls -ltpG"
-alias la="ls -ltapG"
-alias lr="ls -altrpG"
 alias kd='killall Dock'
 alias kc='killall ControlStrip'
 grepr() {
