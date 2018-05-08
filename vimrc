@@ -226,6 +226,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
 set swb=useopen
+nnoremap <leader>b :Buffers<CR>
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
