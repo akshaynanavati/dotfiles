@@ -49,7 +49,8 @@ Plug 'tpope/vim-surround'
 Plug 'w0ng/vim-hybrid'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'vim-scripts/a.vim'
 
 call plug#end()
 
