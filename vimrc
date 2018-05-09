@@ -44,13 +44,11 @@ let NERDTreeIgnore = ['\.pyc$', '\.o$']
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
 Plug 'w0ng/vim-hybrid'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'vim-scripts/a.vim'
+Plug 'akshaynanavati/a.vim'
 
 call plug#end()
 
@@ -201,7 +199,6 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 
 " Binding ctrl+cc / ctrl+vv for osx clipboard
 vmap <C-c><C-c> y:call system("pbcopy", getreg("\""))<CR>
-nmap <C-c><C-v> :call setreg("\"",system("pbpaste"))<CR>p
 
 vnoremap < <gv
 vnoremap > >gv
@@ -361,10 +358,10 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language Specific [LASP]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>pd oimport ipdb; ipdb.set_trace()<Esc>
-nmap <leader>Pd Oimport ipdb; ipdb.set_trace()<Esc>
-nmap <leader>pp ofrom pprint import pprint as pp<Esc>
-nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
+au FileType python nmap <leader>pd oimport ipdb; ipdb.set_trace()<Esc>
+au FileType python nmap <leader>Pd Oimport ipdb; ipdb.set_trace()<Esc>
+au FileType python nmap <leader>pp ofrom pprint import pprint as pp<Esc>
+au FileType python nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
 au BufReadPost *.py normal!zR
 au! FileType python setl nosmartindent
 au FileType python setl sw=4 sts=4 et

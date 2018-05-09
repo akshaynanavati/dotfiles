@@ -109,3 +109,5 @@ fi
 if [ ! -d "$HOME/bin" ]; then
   mkdir -p "$HOME/bin"
 fi
+
+touch "$HOME/.vimrc.local"
