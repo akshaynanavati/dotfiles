@@ -358,10 +358,10 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language Specific [LASP]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au FileType python nmap <leader>pd oimport ipdb; ipdb.set_trace()<Esc>
-au FileType python nmap <leader>Pd Oimport ipdb; ipdb.set_trace()<Esc>
-au FileType python nmap <leader>pp ofrom pprint import pprint as pp<Esc>
-au FileType python nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
+au BufReadPost *.py nmap <leader>pd oimport ipdb; ipdb.set_trace()<Esc>
+au BufReadPost *.py nmap <leader>Pd Oimport ipdb; ipdb.set_trace()<Esc>
+au BufReadPost *.py nmap <leader>pp ofrom pprint import pprint as pp<Esc>
+au BufReadPost *.py nmap <leader>Pp Ofrom pprint import pprint as pp<Esc>
 au BufReadPost *.py normal!zR
 au! FileType python setl nosmartindent
 au FileType python setl sw=4 sts=4 et

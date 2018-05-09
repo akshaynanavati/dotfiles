@@ -5,3 +5,4 @@ vim/plugged
 vim/.netrwhist
 *.swp
 *.swo
+.mypy_cache/
