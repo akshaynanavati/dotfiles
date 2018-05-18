@@ -16,8 +16,6 @@ declare -a dotfile_whitelist=(
   .git_completion.sh\
   .fab_completion\
   .ssh_completion\
-  scm_breeze\
-  .fzf\
   .inputrc\
   .fdignore\
 )
