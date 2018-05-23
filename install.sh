@@ -21,7 +21,10 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 brew install the_silver_searcher
 brew install vim
 brew install fd
+brew install cmake
+brew install gcc@7
 
 source ~/.bash_profile
 
 echo 'Do not forget to open vim and run :PlugInstall to get vim plugins'
+echo 'Add `source ~/.bash_profile_git` to your .bashrc or .bash_profile'
