@@ -1,0 +1,56 @@
+#!/usr/local/bin/python3
+
+import sys
+from datetime import datetime
+import time
+
+if len(sys.argv) == 1:
+    print(int(time.time()))
+    sys.exit(0)
+
+if len(sys.argv) == 2:
+    opt = sys.argv[1]
+
+    if opt[0] == '-' or opt[0] == '+':
+        delta_t = int(opt[1:-1])
+        if opt[-1] == 'm':
+            delta_t *= 60
+        elif opt[-1] == 'h':
+            delta_t *= 3600
+        elif opt[-1] == 'd':
+            delta_t *= 3600 * 24
+
+        if opt[0] == '+':
+            print(int(time.time() + delta_t))
+        else:
+            print(int(time.time() - delta_t))
+
+        sys.exit(0)
+
+    ts = int(sys.argv[1])
+    dt = datetime.fromtimestamp(ts)
+    print(dt)
+    sys.exit(0)
+
+if len(sys.argv) == 3:
+    opt = sys.argv[1]
+    if opt.startswith('delta'):
+        delta_t = int(sys.argv[2]) - int(time.time())
+        if opt[-1] == 'm':
+            print("{}m".format(delta_t / 60))
+        elif opt[-1] == 'h':
+            print("{}h".format(delta_t / 3600))
+        elif opt[-1] == 'd':
+            print("{}d".format(delta_t / 3600 / 24))
+        else:
+            print("{}s".format(delta_t))
+    sys.exit(0)
+
+print("""
+USAGE:
+    Print current timestamp: ts
+    Print timestamp in past/future: ts {+,-}<n>{,m,h,d}
+    Pretty print timestamp: ts <ts>
+    Print delta between timestamp and current time: ts delta{,m,h,d} <ts>
+""")
+sys.exit(1)
