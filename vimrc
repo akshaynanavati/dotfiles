@@ -239,8 +239,8 @@ map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 nmap <leader>t :TagbarToggle<CR>
 nmap <leader>] :YcmCompleter GoToDefinitionElseDeclaration<CR>
-command JV :vs<CR>:YcmCompleter GoToDefinitionElseDeclaration<CR>
-command JH :sp<CR>:YcmCompleter GoToDefinitionElseDeclaration<CR>
+command -nargs=0 JV :vs<CR>:YcmCompleter GoToDefinitionElseDeclaration<CR>
+command -nargs=0 JH :sp<CR>:YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 nmap <leader>= <C-w>=
 nmap <leader>f :exe "vertical resize +10"<CR>
