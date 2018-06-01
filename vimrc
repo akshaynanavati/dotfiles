@@ -238,9 +238,20 @@ nnoremap <C-p> :Files<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 nmap <leader>t :TagbarToggle<CR>
+
 nmap <leader>] :YcmCompleter GoToDefinitionElseDeclaration<CR>
-command -nargs=0 JV :vs<CR>:YcmCompleter GoToDefinitionElseDeclaration<CR>
-command -nargs=0 JH :sp<CR>:YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+function! YcmGoToVertical()
+  execute 'vs'
+  execute 'YcmCompleter GoToDefinitionElseDeclaration'
+endfunction
+command! -nargs=0 JV :call YcmGoToVertical()
+
+function! YcmGoToHorizontal()
+  execute 'sp'
+  execute 'YcmCompleter GoToDefinitionElseDeclaration'
+endfunction
+command! -nargs=0 JH :sp<CR>:YcmCompleter GoToDefinitionElseDeclaration
 
 nmap <leader>= <C-w>=
 nmap <leader>f :exe "vertical resize +10"<CR>
