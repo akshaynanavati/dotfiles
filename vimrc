@@ -18,7 +18,7 @@
 "    -> Text, tab and indent related [TTIR]
 "    -> Visual mode related [VMR]
 "    -> Moving around, tabs and buffers [MATB]
-"    -> Status line [STATL]
+"    -> Sessions [SSNS]
 "    -> Editing mappings [EDMP]
 "    -> vimgrep searching and cope displaying [VSCD]
 "    -> Spell checking [SPLC]
@@ -71,6 +71,9 @@ set autowriteall
 
 let mapleader = ' '
 let g:mapleader = ' '
+"
+" Always show the status line
+set laststatus=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface [VUI]
@@ -251,7 +254,7 @@ function! YcmGoToHorizontal()
   execute 'sp'
   execute 'YcmCompleter GoToDefinitionElseDeclaration'
 endfunction
-command! -nargs=0 JH :YcmGoToHorizontal()
+command! -nargs=0 JH :call YcmGoToHorizontal()
 
 nmap <leader>= <C-w>=
 nmap <leader>f :exe "vertical resize +10"<CR>
@@ -260,10 +263,72 @@ nmap <leader>d :exe "resize -10"<CR>
 nmap <leader>s :exe "resize +10"<CR>
 
 """"""""""""""""""""""""""""""
-" => Status line [STATL]
+" => Sessions [SSNS]
 """"""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
+
+function! BufOnly(buffer, bang)
+    if a:buffer == ''
+        " No buffer provided, use the current buffer.
+        let buffer = bufnr('%')
+    elseif (a:buffer + 0) > 0
+        " A buffer number was provided.
+        let buffer = bufnr(a:buffer + 0)
+    else
+        " A buffer name was provided.
+        let buffer = bufnr(a:buffer)
+    endif
+
+    if buffer == -1
+        echohl ErrorMsg
+        echomsg "No matching buffer for" a:buffer
+        echohl None
+        return
+    endif
+
+    let last_buffer = bufnr('$')
+
+    let delete_count = 0
+    let n = 1
+    while n <= last_buffer
+        if n != buffer && buflisted(n)
+            if a:bang == '' && getbufvar(n, '&modified')
+                echohl ErrorMsg
+                echomsg 'No write since last change for buffer'
+                            \ n '(add ! to override)'
+                echohl None
+            else
+                silent exe 'bdel' . a:bang . ' ' . n
+                if ! buflisted(n)
+                    let delete_count = delete_count+1
+                endif
+            endif
+        endif
+        let n = n+1
+    endwhile
+
+    if delete_count == 1
+        echomsg delete_count "buffer deleted"
+    elseif delete_count > 1
+        echomsg delete_count "buffers deleted"
+    endif
+
+endfunction
+
+let g:sessions_dir = '~/.vim_sessions'
+function! SaveSessionF(sname)
+    execute ':mks! ' . g:sessions_dir . '/' . a:sname . '.sess'
+endfunction
+
+command! -nargs=1 SaveSession :call SaveSessionF('<args>')
+nnoremap <leader>ss :SaveSession 
+
+function! FzfSessions()
+    execute ':enew'
+    call BufOnly('', '')
+    let fd = 'fd .*.sess$ ' . g:sessions_dir
+    call fzf#run({'source': fd, 'sink': 'source'})
+endfunction
+nnoremap <leader>sr :call FzfSessions()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings [EDMP]
