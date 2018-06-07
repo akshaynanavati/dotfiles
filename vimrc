@@ -315,20 +315,60 @@ function! BufOnly(buffer, bang)
 endfunction
 
 let g:sessions_dir = '~/.vim_sessions'
-function! SaveSessionF(sname)
-    execute ':mks! ' . g:sessions_dir . '/' . a:sname . '.sess'
-endfunction
+let g:current_session = ""
 
-command! -nargs=1 SaveSession :call SaveSessionF('<args>')
-nnoremap <leader>ss :SaveSession 
-
-function! FzfSessions()
+" Delete session
+function! DeleteSessionF(sess)
     execute ':enew'
     call BufOnly('', '')
-    let fd = 'fd .*.sess$ ' . g:sessions_dir
-    call fzf#run({'source': fd, 'sink': 'source'})
+    let g:current_session = ""
+    call delete(a:sess)
 endfunction
-nnoremap <leader>sr :call FzfSessions()<CR>
+
+command! -nargs=1 DeleteSession :call DeleteSessionF('<args>')
+function! FzfDeleteSessions()
+    let fd = 'fd .*.sess$ ' . g:sessions_dir
+    call fzf#run({'source': fd, 'sink': 'DeleteSession'})
+endfunction
+nnoremap <leader>sd :call FzfDeleteSessions()<CR>
+
+" New Session
+function! NewSessionF()
+    let g:current_session = ""
+    execute ":enew"
+    call BufOnly('', '')
+endfunction
+
+nnoremap <leader>sn :call NewSessionF()<cr>
+
+" Save Session
+function! SaveSessionF()
+    if g:current_session == ""
+        let sname = input("Enter session name: ")
+        let g:current_session = g:sessions_dir . '/' . sname . '.sess'
+        redraw
+    endif
+
+    echo "Saving session " . g:current_session
+    execute ':mks! ' . g:current_session
+endfunction
+
+nnoremap <leader>ss :call SaveSessionF()<cr>
+
+" Restore Session
+function! RestoreSessionF(sess)
+    execute ':enew'
+    call BufOnly('', '')
+    let g:current_session = a:sess
+    execute ':source ' . a:sess
+endfunction
+
+command! -nargs=1 RestoreSession :call RestoreSessionF('<args>')
+function! FzfRestoreSessions()
+    let fd = 'fd .*.sess$ ' . g:sessions_dir
+    call fzf#run({'source': fd, 'sink': 'RestoreSession'})
+endfunction
+nnoremap <leader>sr :call FzfRestoreSessions()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings [EDMP]
