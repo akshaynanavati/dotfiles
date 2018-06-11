@@ -46,7 +46,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'sheerun/vim-polyglot'
 Plug 'w0ng/vim-hybrid'
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'akshaynanavati/a.vim'
 
@@ -512,5 +512,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_fix_on_save = 1
+
+let g:ycm_rust_src_path = '/Users/akshay/Projects/rust/src'
 
 execute printf('source %s/%s', $HOME, '.vimrc.local')
