@@ -55,6 +55,8 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General [GNRL]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let $PAGER=''
+
 filetype off
 
 " Sets how many lines of history VIM has to remember
