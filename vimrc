@@ -351,8 +351,9 @@ function! SaveSessionF()
         redraw
     endif
 
-    echo "Saving session " . g:current_session
+    echon "Saving session " . g:current_session . "..."
     execute ':mks! ' . g:current_session
+    echon "done!"
 endfunction
 
 nnoremap <leader>ss :call SaveSessionF()<cr>
