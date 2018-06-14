@@ -265,6 +265,9 @@ nmap <leader>s :exe "resize +10"<CR>
 " => Sessions [SSNS]
 """"""""""""""""""""""""""""""
 
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+
 function! BufOnly(buffer, bang)
     if a:buffer == ''
         " No buffer provided, use the current buffer.
