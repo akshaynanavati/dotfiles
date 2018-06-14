@@ -44,7 +44,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.o$']
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'sheerun/vim-polyglot'
-Plug 'w0ng/vim-hybrid'
+Plug 'akshaynanavati/vim-hybrid'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -173,9 +173,6 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-
-" Make other lines light gray
-highlight LineNr ctermfg=lightgray
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related [TTIR]
