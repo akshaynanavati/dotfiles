@@ -233,7 +233,7 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 " Remember info about open buffers on close
-set viminfo^=%
+set viminfo^=h
 
 nnoremap <C-p> :Files<CR>
 
@@ -318,6 +318,7 @@ endfunction
 
 let g:sessions_dir = '~/.vim_sessions'
 let g:current_session = ""
+let g:save_session_on_quit = 1
 
 " Delete session
 function! DeleteSessionF(sess)
@@ -347,6 +348,9 @@ nnoremap <leader>sn :call NewSessionF()<cr>
 function! SaveSessionF()
     if g:current_session == ""
         let sname = input("Enter session name: ")
+        while sname == ""
+            let sname = input("Cannot enter blank session name. Enter session name: ")
+        endwhile
         let g:current_session = g:sessions_dir . '/' . sname . '.sess'
         redraw
     endif
@@ -361,7 +365,7 @@ nnoremap <leader>ss :call SaveSessionF()<cr>
 " Save Session on quit
 function! SaveSessionOnQuitF()
     redraw
-    echon "Save session? [y/N]"
+    echon "Save session? [y/N] "
     let c = nr2char(getchar())
     if c == "y"
         redraw
@@ -369,7 +373,9 @@ function! SaveSessionOnQuitF()
     endif
 endfunction
 
-autocmd VimLeave * call SaveSessionOnQuitF()
+if g:save_session_on_quit
+    autocmd VimLeave * call SaveSessionOnQuitF()
+endif
 
 " Restore Session
 function! RestoreSessionF(sess)
