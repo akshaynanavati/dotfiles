@@ -358,6 +358,19 @@ endfunction
 
 nnoremap <leader>ss :call SaveSessionF()<cr>
 
+" Save Session on quit
+function! SaveSessionOnQuitF()
+    redraw
+    echon "Save session? [y/N]"
+    let c = nr2char(getchar())
+    if c == "y"
+        redraw
+        call SaveSessionF()
+    endif
+endfunction
+
+autocmd VimLeave * call SaveSessionOnQuitF()
+
 " Restore Session
 function! RestoreSessionF(sess)
     execute ':enew'
