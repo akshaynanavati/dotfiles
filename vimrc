@@ -374,7 +374,7 @@ function! SaveSessionOnQuitF()
 endfunction
 
 if g:save_session_on_quit
-    autocmd VimLeave * call SaveSessionOnQuitF()
+    autocmd QuitPre * call SaveSessionOnQuitF()
 endif
 
 " Restore Session
