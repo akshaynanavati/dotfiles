@@ -18,6 +18,7 @@ declare -a dotfile_whitelist=(
   .ssh_completion\
   .inputrc\
   .fdignore\
+  .vim_session_completion\
 )
 
 backup_dir="${HOME}/dotfiles.bak"

@@ -1,0 +1,18 @@
+_vims_completion() {
+  local ARGS="$@"
+  local cur=${COMP_WORDS[$COMP_CWORD]}
+    local dir="$HOME/.vim_sessions"
+    selected=$(fd .*.sess ~/.vim_sessions | fzf --height ${FZF_TMUX_HEIGHT:-50%} --min-height 15 --reverse | tr '\n' ' ' | sed 's/[[:space:]]*$//g')
+    printf '\e[5n'
+    if [ -n "$selected" ]; then
+        COMPREPLY=( "$selected" )
+        return 0
+    fi
+}
+
+vims() {
+  vim -S $1
+}
+
+complete -F _vims_completion -o default -o bashdefault vims
+
