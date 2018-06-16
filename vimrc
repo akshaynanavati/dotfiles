@@ -364,12 +364,14 @@ nnoremap <leader>ss :call SaveSessionF()<cr>
 
 " Save Session on quit
 function! SaveSessionOnQuitF()
-    redraw
-    echon "Save session? [y/N] "
-    let c = nr2char(getchar())
-    if c == "y"
+    if g:current_session != ""
         redraw
-        call SaveSessionF()
+        echon "Save session? [y/N] "
+        let c = nr2char(getchar())
+        if c == "y"
+            redraw
+            call SaveSessionF()
+        endif
     endif
 endfunction
 
@@ -412,7 +414,7 @@ autocmd BufWrite * :call DeleteTrailingWS()
 
 map <leader>o o<esc>
 nnoremap <leader>u :GitGutterUndoHunk<CR>
-map <C-I> :YcmCompleter FixIt<CR>
+map <leader>i :YcmCompleter FixIt<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying [VSCD]
