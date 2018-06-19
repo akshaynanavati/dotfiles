@@ -253,7 +253,7 @@ function! YcmGoToHorizontal()
   execute 'sp'
   execute 'YcmCompleter GoToDefinitionElseDeclaration'
 endfunction
-command! -nargs=0 JH :call YcmGoToHorizontal()
+command! -nargs=0 JS :call YcmGoToHorizontal()
 
 nmap <leader>= <C-w>=
 nmap <leader>f :exe "vertical resize +10"<CR>
