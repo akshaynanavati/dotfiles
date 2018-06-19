@@ -400,8 +400,13 @@ nnoremap <leader>sr :call FzfRestoreSessions()<CR>
 map <leader>p "0p
 map <leader>P "0P
 
+let g:enable_trailng_ws = 0
+
 " Delete trailing white space on save, useful for Python
 func! DeleteTrailingWS()
+  if g:enable_trailng_ws
+      return
+  endif
   if expand('%') =~ 'vimrc'
     return
   endif
