@@ -528,7 +528,6 @@ let g:ycm_min_num_identifier_candidate_chars = 4
 let g:ycm_error_symbol = 'x'
 let g:ycm_warning_symbol = '!'
 let g:ycm_auto_trigger = 0
-let g:ycm_key_invoke_completion = '<C-n>'
 let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \   'c': ['clang-format'],
