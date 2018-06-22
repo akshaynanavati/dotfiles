@@ -90,6 +90,9 @@ mkdir -p "$HOME/.emacs.d"
 if [ -h "$HOME/.emacs.d/init.el" ]
 then
   echo "file $HOME/.emacs.d/init.el already exists"
+elif [! -a "$HOME/.emacs.d/init.el"]
+then
+  create_symlink "$(pwd)/emacs.d/init.el" "$HOME/.emacs.d/init.el"
 fi
 
 mkdir -p "$HOME/bash_history_git"
@@ -99,11 +102,6 @@ then
   mv "$HOME/.bash_history" "$HOME/bash_history_git" && create_symlink "$HOME/bash_history_git/.bash_history" "$HOME/.bash_history"
 fi
 
-
-if [ ! -a "$HOME/.emacs.d/init.el" ]
-then
-  create_symlink "$(pwd)/emacs.d/init.el" "$HOME/.emacs.d/init.el"
-fi
 
 if [ ! -d "$HOME/bin" ]; then
   mkdir -p "$HOME/bin"
