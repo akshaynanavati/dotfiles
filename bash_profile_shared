@@ -42,7 +42,7 @@ shopt -s histappend
 set -o history
 export HISTFILESIZE=-1
 export HISTSIZE=130000
-export PROMPT_COMMAND='history -a; history -r'
+export PROMPT_COMMAND='history -a' #; history -c; history -r'
 unset HISTTIMEFORMAT
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
