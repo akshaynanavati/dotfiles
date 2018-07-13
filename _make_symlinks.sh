@@ -108,4 +108,5 @@ if [ ! -d "$HOME/bin" ]; then
 fi
 
 mkdir -p "$HOME/.vim_sessions"
+mkdir -p "$HOME/.vim_undo"
 touch "$HOME/.vimrc.local"
