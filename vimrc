@@ -166,13 +166,14 @@ nnoremap <leader><leader> :only<CR>
 " Enable syntax highlighting
 
 set t_Co=256
+
+syntax enable
+set background=dark
+
 " let g:hybrid_custom_term_colors = 1
 " colorscheme hybrid
 " colorscheme gruvbox
 colorscheme eink
-
-syntax enable
-set background=dark
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -550,6 +551,7 @@ let g:ale_fixers = {
 
 let g:ale_linters = {
 \   'cpp': [],
+\   'c': [],
 \   'py': [],
 \   'rust': ['cargo'],
 \}
