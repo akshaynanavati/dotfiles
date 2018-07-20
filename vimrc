@@ -44,11 +44,15 @@ let NERDTreeIgnore = ['\.pyc$', '\.o$']
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'sheerun/vim-polyglot'
-Plug 'akshaynanavati/vim-hybrid'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'akshaynanavati/a.vim'
+"
+" Colorschemes
+Plug 'akshaynanavati/vim-hybrid'
+Plug 'clinstid/eink.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -162,8 +166,10 @@ nnoremap <leader><leader> :only<CR>
 " Enable syntax highlighting
 
 set t_Co=256
-let g:hybrid_custom_term_colors = 1
-colorscheme hybrid
+" let g:hybrid_custom_term_colors = 1
+" colorscheme hybrid
+" colorscheme gruvbox
+colorscheme eink
 
 syntax enable
 set background=dark
