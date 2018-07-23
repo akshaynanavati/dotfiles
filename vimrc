@@ -35,26 +35,28 @@
 call plug#begin('~/.vim/plugged')
 
 set rtp+=~/.fzf
-Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
-Plug 'w0rp/ale'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-let NERDTreeIgnore = ['\.pyc$', '\.o$']
-Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'sheerun/vim-polyglot'
-Plug 'majutsushi/tagbar'
+
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'airblade/vim-gitgutter'
 Plug 'akshaynanavati/a.vim'
-"
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'sheerun/vim-polyglot'
+Plug 'w0rp/ale'
+
 " Colorschemes
 Plug 'akshaynanavati/vim-hybrid'
 Plug 'clinstid/eink.vim'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
+
+let NERDTreeIgnore = ['\.pyc$', '\.o$']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General [GNRL]
