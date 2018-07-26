@@ -51,7 +51,7 @@ Plug 'w0rp/ale'
 
 " Colorschemes
 Plug 'akshaynanavati/vim-hybrid'
-Plug 'clinstid/eink.vim'
+Plug 'akshaynanavati/eink.vim'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
