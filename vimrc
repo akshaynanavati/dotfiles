@@ -416,11 +416,11 @@ set undofile
 map <leader>p "0p
 map <leader>P "0P
 
-let g:enable_trailng_ws = 0
+let g:disable_trailng_ws = 0
 
 " Delete trailing white space on save, useful for Python
 func! DeleteTrailingWS()
-  if g:enable_trailng_ws
+  if g:disable_trailng_ws
       return
   endif
   if expand('%') =~ 'vimrc'
@@ -557,6 +557,8 @@ let g:ale_linters = {
 \   'py': [],
 \   'rust': ['cargo'],
 \}
+
+let g:ale_c_clangformat_options='-style=file'
 
 let g:ale_fix_on_save = 1
 
