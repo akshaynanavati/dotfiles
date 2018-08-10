@@ -55,3 +55,4 @@ export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
 export GIT_PAGER='less -FRX'
 
 source ~/.vim_session_completion
+history -r
