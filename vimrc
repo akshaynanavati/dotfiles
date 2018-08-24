@@ -166,6 +166,7 @@ function! FCopyMode()
     execute 'set number!'
     execute 'set relativenumber!'
     execute 'set list!'
+    execute 'ALEToggle'
 endfunction
 
 command! -nargs=0 CopyMode :call FCopyMode()
