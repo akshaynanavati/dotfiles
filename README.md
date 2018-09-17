@@ -12,3 +12,5 @@ My configuration files for Mac OSX (and linux).
 
 Note, if you want to use the bash configurations provided in this repo,
 you must add `source ~/.bash_profile_git` to your own bash config file.
+
+These files are provided as is with no warantee or guarnatee that they will work as desired. It is up to you to read and understand the code that you're running. I am not responsible for anything that may come of installing or running the code in this repository.
