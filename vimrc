@@ -451,7 +451,7 @@ map <leader>i :YcmCompleter FixIt<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nnoremap <leader>g :Ack!<Space>$
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'rg --vimgrep --no-heading'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc [MISC]
