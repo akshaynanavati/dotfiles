@@ -34,6 +34,7 @@ alias gr='git reset --'
 alias grh='git reset --hard'
 alias grs='git reset --soft'
 alias grv='git remote -v'
+alias grhm='git fetch && git reset --hard origin/master'
 gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
 gcpl () { gco $1 && git pull; }
 
