@@ -43,7 +43,6 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-Plug 'mileszs/ack.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
