@@ -563,6 +563,10 @@ let g:ale_linters = {
 let g:ale_c_clangformat_options='-style=file'
 
 let g:ale_fix_on_save = 1
+function AutoFixOnSave(timer)
+    let g:ale_fix_on_save = 1
+endfunction
+let timer = timer_start(2000, 'AutoFixOnSave',{'repeat':-1})
 
 let g:ycm_rust_src_path = '/Users/akshay/Projects/rust/src'
 
