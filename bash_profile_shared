@@ -32,6 +32,7 @@ function killregex() { kill -9 `getpids $1`; }
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 function remove_dups() { nl $1 | sort -k2 -k 1,1nr | uniq -f1 | sort -n | cut -f2; }
 function space_to_newline() { echo "$1" | sed -e 's/\s\+/\n/g'; }
+echoerr() { echo "$@" 1>&2; }
 
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
