@@ -418,6 +418,7 @@ set undofile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>p "0p
 map <leader>P "0P
+nnoremap B :vert term<CR>
 
 let g:disable_trailng_ws = 0
 
