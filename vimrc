@@ -47,6 +47,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
+Plug 'freitass/todo.txt-vim'
 
 " Colorschemes
 Plug 'akshaynanavati/vim-hybrid'
