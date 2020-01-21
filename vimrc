@@ -36,7 +36,6 @@ call plug#begin('~/.vim/plugged')
 
 set rtp+=~/.fzf
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer' }
 Plug 'airblade/vim-gitgutter'
 Plug 'akshaynanavati/a.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -182,9 +181,9 @@ syntax enable
 set background=dark
 
 " let g:hybrid_custom_term_colors = 1
-" colorscheme hybrid
+colorscheme hybrid
 " colorscheme gruvbox
-colorscheme eink
+" colorscheme eink
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -253,20 +252,6 @@ nnoremap <C-p> :Files<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 nmap <leader>t :TagbarToggle<CR>
-
-nmap <leader>] :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-function! YcmGoToVertical()
-  execute 'vs'
-  execute 'YcmCompleter GoToDefinitionElseDeclaration'
-endfunction
-command! -nargs=0 JV :call YcmGoToVertical()
-
-function! YcmGoToHorizontal()
-  execute 'sp'
-  execute 'YcmCompleter GoToDefinitionElseDeclaration'
-endfunction
-command! -nargs=0 JS :call YcmGoToHorizontal()
 
 nmap <leader>= <C-w>=
 nmap <leader>f :exe "vertical resize +10"<CR>
@@ -440,7 +425,6 @@ autocmd BufWrite * :call DeleteTrailingWS()
 
 map <leader>o o<esc>
 nnoremap <leader>u :GitGutterUndoHunk<CR>
-map <leader>i :YcmCompleter FixIt<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying [VSCD]
@@ -543,11 +527,6 @@ set cino=N-s
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters [LNTR]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_min_num_identifier_candidate_chars = 4
-let g:ycm_error_symbol = 'x'
-let g:ycm_warning_symbol = '!'
-let g:ycm_auto_trigger = 0
 let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \   'c': ['clang-format'],
@@ -569,7 +548,5 @@ function AutoFixOnSave(timer)
     let g:ale_fix_on_save = 1
 endfunction
 let timer = timer_start(2000, 'AutoFixOnSave',{'repeat':-1})
-
-let g:ycm_rust_src_path = '/Users/akshay/Projects/rust/src'
 
 execute printf('source %s/%s', $HOME, '.vimrc.local')
