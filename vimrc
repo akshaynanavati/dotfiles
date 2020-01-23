@@ -157,8 +157,6 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-imap jk <esc>
-
 nnoremap <leader><leader> :only<CR>
 
 function! FCopyMode()
