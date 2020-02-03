@@ -6,4 +6,3 @@ set show-mode-in-prompt on
 "\e[B": history-search-forward
 
 set keymap vi-insert
-"jk": vi-movement-mode
