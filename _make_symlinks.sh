@@ -19,6 +19,7 @@ declare -a dotfile_whitelist=(
   .inputrc\
   .fdignore\
   .vim_session_completion\
+  .make_autocomplete\
 )
 
 backup_dir="${HOME}/dotfiles.bak"

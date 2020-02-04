@@ -58,3 +58,4 @@ export GIT_PAGER='less -FRX'
 
 source ~/.vim_session_completion
 history -r
+source ~/.make_autocomplete
