@@ -44,3 +44,7 @@ alias vup='vagrant up && vagrant ssh'
 alias vs='vagrant suspend'
 alias vssh='vagrant ssh'
 
+function retry {
+  until "$@"; do true; done
+}
+
