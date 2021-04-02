@@ -108,6 +108,9 @@ if [ ! -d "$HOME/bin" ]; then
   mkdir -p "$HOME/bin"
 fi
 
+create_symlink "$(pwd)/bin/ts" "$HOME/bin/ts"
+create_symlink "$(pwd)/bin/path_compressor.py" "$HOME/bin/path_compressor.py"
+
 mkdir -p "$HOME/.vim_sessions"
 mkdir -p "$HOME/.vim_undo"
 touch "$HOME/.vimrc.local"

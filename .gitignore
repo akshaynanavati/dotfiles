@@ -6,3 +6,4 @@ vim/.netrwhist
 *.swp
 *.swo
 .mypy_cache/
+vim/view

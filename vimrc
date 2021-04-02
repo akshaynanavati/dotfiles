@@ -530,13 +530,18 @@ let g:ale_fixers = {
 \   'c': ['clang-format'],
 \   'py': ['autopep8'],
 \   'rust': ['rustfmt'],
+\   'javascript': ['eslint'],
 \}
+
+let g:rustfmt_options = '--edition 2018'
+let g:rustfmt_autosave = 1
 
 let g:ale_linters = {
 \   'cpp': [],
 \   'c': [],
 \   'py': [],
 \   'rust': ['cargo'],
+\   'javascript': ['eslint'],
 \}
 
 let g:ale_c_clangformat_options='-style=file'
