@@ -25,7 +25,7 @@ PS1="[Exit: \[\033[1;31m\]\${PIPESTATUS[@]/#0/\[\033[0m\]\[\033[1;32m\]0\[\033[1
 
 # git aliases
 alias gashd='git stash drop'
-alias gbr='g br'
+alias gbr='g branch'
 alias gcob='git checkout -b'
 alias glg='git log --graph'
 alias gln='git log --stat --graph'
