@@ -47,6 +47,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 Plug 'freitass/todo.txt-vim'
+Plug 'tpope/vim-fugitive'
 
 " Colorschemes
 Plug 'akshaynanavati/vim-hybrid'
