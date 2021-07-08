@@ -37,6 +37,10 @@ alias grv='git remote -v'
 alias grhm='git fetch && git reset --hard origin/master'
 gnf () { gcob $1 && git fetch && git reset --hard origin/master; }
 gcpl () { gco $1 && git pull; }
+alias gdh='git diff HEAD^'
+alias gfc='git diff --name-only'
+alias gfch='git diff HEAD^ --name-only'
+alias grpl='git fetch && git reset --hard origin/$(git branch --show-current)'
 
 # vagrant aliases
 alias v='vagrant'
