@@ -42,6 +42,11 @@ alias gfc='git diff --name-only'
 alias gfch='git diff HEAD^ --name-only'
 alias grpl='git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)'
 
+function gbrd {
+    git branch -D "$1";
+    git push origin --delete "$1";
+}
+
 # vagrant aliases
 alias v='vagrant'
 alias vup='vagrant up && vagrant ssh'
