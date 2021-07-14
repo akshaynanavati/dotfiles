@@ -40,7 +40,8 @@ gcpl () { gco $1 && git pull; }
 alias gdh='git diff HEAD^'
 alias gfc='git diff --name-only'
 alias gfch='git diff HEAD^ --name-only'
-alias grpl='git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)'
+
+grpl () { git checkout $1 && git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
 
 function gbrd {
     git branch -D "$1";
