@@ -40,7 +40,9 @@ gcpl () { gco $1 && git pull; }
 alias gdh='git diff HEAD^'
 alias gfc='git diff --name-only'
 alias gfch='git diff HEAD^ --name-only'
-alias gcma='git add --all && git commit --amend'
+alias gcma='git add --all && git commit --amend --no-edit'
+alias gcu='git commit -m Update'
+alias gcua='git add --all && git commit -m Update'
 
 grho () { git checkout $1 && git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
 grpl () { git checkout $1 && git fetch && git rebase origin/master; }
