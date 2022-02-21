@@ -38,16 +38,11 @@ set rtp+=~/.fzf
 
 Plug 'airblade/vim-gitgutter'
 Plug 'akshaynanavati/a.vim'
-Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'w0rp/ale'
-Plug 'freitass/todo.txt-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colorschemes
 Plug 'akshaynanavati/vim-hybrid'
