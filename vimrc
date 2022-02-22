@@ -42,7 +42,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colorschemes
 Plug 'akshaynanavati/vim-hybrid'
