@@ -43,6 +43,8 @@ alias gfch='git diff HEAD^ --name-only'
 alias gcma='git add --all && git commit --amend --no-edit'
 alias gcu='git commit -m Update'
 alias gcua='git add --all && git commit -m Update'
+alias gpl='git pull --recurse-submodules'
+alias gup='br=$(git branch --show-current); git branch --set-upstream-to=origin/$br $br'
 
 grho () { git checkout $1 && git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
 grpl () { git checkout $1 && git fetch && git rebase origin/master; }

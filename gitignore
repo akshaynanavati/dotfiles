@@ -6,3 +6,4 @@
 .idea/
 logfile
 s2-geometry-library-java.iml
+${rs.build.dir}/
