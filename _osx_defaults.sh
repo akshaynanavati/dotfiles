@@ -29,12 +29,12 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #     "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
 #     "/System/Library/CoreServices/Menu Extras/Battery.menu" \
 #     "/System/Library/CoreServices/Menu Extras/Clock.menu"
-# 
+#
 # Expand save panel by default
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+# defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
 # Disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+# defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
@@ -67,10 +67,10 @@ defaults write com.apple.BezelServices kDim -bool true
 defaults write com.apple.BezelServices kDimTime -int 300
 
 # Stop iTunes from responding to the keyboard media keys
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
 # Silence user interface sound effects (emptying trash, etc.)
-defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool false
+# defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool false
 
 ###############################################################################
 # Screen                                                                      #
@@ -82,7 +82,8 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots in JPG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "jpg"
-defaults write com.apple.screencapture location ~/Pictures/screenshots
+mkdir -p ~/screenshots
+defaults write com.apple.screencapture location ~/screenshots
 
 ###############################################################################
 # Finder                                                                      #
@@ -120,8 +121,8 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Dock
 ###############################################################################
 
-# Dock on the right
-defaults write com.apple.dock orientation -string "bottom" 
+# Dock on the bottom
+defaults write com.apple.dock orientation -string "bottom"
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -146,21 +147,3 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 # Sort Activity Monitor results by CPU usage
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
-
-###############################################################################
-# Iterm2                                                                      #
-###############################################################################
-
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
-###############################################################################
-# Kill affected applications                                                  #
-###############################################################################
-
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-    "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-    "Terminal" "Transmission" "Twitter" "iCal"; do
-    killall "${app}" > /dev/null 2>&1
-done
-echo "Done. Note that some of these changes require a logout/restart to take effect."

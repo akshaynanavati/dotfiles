@@ -1,8 +1,0 @@
-set editing-mode vi
-set show-mode-in-prompt on
-
-"\C-r": reverse-search-history
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-
-set keymap vi-insert

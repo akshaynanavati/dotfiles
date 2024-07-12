@@ -39,9 +39,7 @@ set rtp+=~/.fzf
 Plug 'airblade/vim-gitgutter'
 Plug 'akshaynanavati/a.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
 
 " Colorschemes
 Plug 'akshaynanavati/vim-hybrid'
@@ -153,13 +151,6 @@ augroup CursorLine
 augroup END
 
 nnoremap <leader><leader> :only<CR>
-
-function! FCopyMode()
-    execute 'set number!'
-    execute 'set relativenumber!'
-    execute 'set list!'
-    execute 'ALEToggle'
-endfunction
 
 command! -nargs=0 CopyMode :call FCopyMode()
 

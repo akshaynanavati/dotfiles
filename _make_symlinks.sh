@@ -7,19 +7,8 @@ set -e
 # When a symlink already exists, replace it
 
 declare -a dotfile_whitelist=(
-  .bash_profile_git\
-  .bash_profile_shared\
-  .gitignore\
   .vim\
   .vimrc\
-  .git_prompt\
-  .git_completion.sh\
-  .fab_completion\
-  .ssh_completion\
-  .inputrc\
-  .fdignore\
-  .vim_session_completion\
-  .make_autocomplete\
 )
 
 backup_dir="${HOME}/dotfiles.bak"
@@ -86,30 +75,13 @@ for f in ${dotfile_whitelist[@]}; do
   fi
 done
 
-mkdir -p "$HOME/.emacs.d"
-# doesn't exist yet, create symlink
-if [ -h "$HOME/.emacs.d/init.el" ]
-then
-  echo "file $HOME/.emacs.d/init.el already exists"
-elif [! -a "$HOME/.emacs.d/init.el"]
-then
-  create_symlink "$(pwd)/emacs.d/init.el" "$HOME/.emacs.d/init.el"
-fi
-
-mkdir -p "$HOME/bash_history_git"
-if [ ! -a "$HOME/bash_history_git/remove_dups.sh" ]
-then
-  create_symlink "$(pwd)/bash_history/remove_dups.sh" "$HOME/bash_history_git/remove_dups.sh"
-  mv "$HOME/.bash_history" "$HOME/bash_history_git" && create_symlink "$HOME/bash_history_git/.bash_history" "$HOME/.bash_history"
-fi
-
-
 if [ ! -d "$HOME/bin" ]; then
   mkdir -p "$HOME/bin"
 fi
 
 create_symlink "$(pwd)/bin/ts" "$HOME/bin/ts"
-create_symlink "$(pwd)/bin/path_compressor.py" "$HOME/bin/path_compressor.py"
+create_symlink "$(pwd)/bin/pyperl" "$HOME/bin/pyperl"
+# create_symlink "$(pwd)/bin/path_compressor.py" "$HOME/bin/path_compressor.py"
 
 mkdir -p "$HOME/.vim_sessions"
 mkdir -p "$HOME/.vim_undo"

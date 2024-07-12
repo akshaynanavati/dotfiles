@@ -12,18 +12,18 @@ fi
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
-~/.scm_breeze/install.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+if [ ! -d ~/.scm_breeze ]; then
+    echo 'installing scm breeze...';
+    git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze;
+    ~/.scm_breeze/install.sh;
+fi
 
-brew install vim
-brew install fd
-brew install cmake
-brew install gcc@7
-
-source ~/.bash_profile
+if [! -d ~/.fzf ]; then
+    echo 'installing fzf...'
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf;
+    ~/.fzf/install;
+fi
 
 echo 'Do not forget to open vim and run :PlugInstall to get vim plugins'
-echo 'Add `source ~/.bash_profile_git` to your .bashrc or .bash_profile'

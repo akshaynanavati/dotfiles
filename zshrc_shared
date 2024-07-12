@@ -1,30 +1,29 @@
-# Show git branch in prompt
-source ~/.bash_profile_shared
-source ~/.git_prompt
-source ~/.git_completion.sh
-source ~/.fab_completion
-source ~/.ssh_completion
+export EDITOR=vim
 
-# Returns "*" if the current git branch is dirty.
-function parse_git_dirty {
-  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
-}
+alias kd='killall Dock'
+alias kc='killall ControlStrip'
 
-# Returns "|shashed:N" where N is the number of stashed states (if any).
-function parse_git_stash {
-  local stash=`expr $(git stash list 2>/dev/null| wc -l)`
-  if [ "$stash" != "0" ]
-  then
-    echo "|stashed:$stash"
+grepr() {
+  if [ "$#" -eq 1 ]; then
+    grep -r $1 .;
+  elif [ "$#" -eq 2 ]; then
+    grep -r $1 $2;
+  elif [ "$#" -ge 2 ]; then
+    grep -r "${@:3}" $1 $2;
+  else
+    echo 'Usage: grepr <search-string>[ <dir>[ <additional args>]]'
   fi
 }
 
-###Change the terminal prompt
-PS1="[Exit: \[\033[1;31m\]\${PIPESTATUS[@]/#0/\[\033[0m\]\[\033[1;32m\]0\[\033[1;31m\]}\[\033[0m\]] \[\e[0m\]\[\e[0;34m(\$(__git_ps1)\$(parse_git_dirty)\$(parse_git_stash))\[\e[0m\]\n\T (\[\e[33m\]\u\[\e[0m\]:\[\e[32m\]\$(_dir_chomp 20)\[\e[0m\])\$ "
-
+getpids() { ps aux | grep $1 | awk '{ print $2 }'; }
+killregex() { kill -9 `getpids $1`; }
+mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+remove_dups() { nl $1 | sort -k2 -k 1,1nr | uniq -f1 | sort -n | cut -f2; }
+space_to_newline() { echo "$1" | sed -e 's/\s\+/\n/g'; }
+echoerr() { echo "$@" 1>&2; }
 
 # git aliases
-alias gashd='git stash drop'
+alias gashp='git stash pop'
 alias gbr='g branch'
 alias gcob='git checkout -b'
 alias glg='git log --graph'
@@ -51,7 +50,7 @@ grpl () { git checkout $1 && git fetch && git rebase origin/master; }
 
 alias gopen='vim $(git diff HEAD^ --name-only)'
 
-function gbrd {
+gbrd() {
     branches=("$@");
     for branch in "${branches[@]}"
     do
@@ -60,13 +59,14 @@ function gbrd {
     done
 }
 
-# vagrant aliases
-alias v='vagrant'
-alias vup='vagrant up && vagrant ssh'
-alias vs='vagrant suspend'
-alias vssh='vagrant ssh'
+gca() {
+    git add --all;
+    git commit -am "$1";
+}
 
-function retry {
+retry() {
   until "$@"; do true; done
 }
 
+
+path=("$HOME/bin" $path)
