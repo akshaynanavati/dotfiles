@@ -6,10 +6,6 @@ then
     exit 1
 fi
 
-./_make_symlinks.sh
-./_install_gitconfig.sh
-./_osx_defaults.sh
-
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -25,5 +21,9 @@ if [! -d ~/.fzf ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf;
     ~/.fzf/install;
 fi
+
+./_make_symlinks.sh
+./_install_gitconfig.sh
+./_osx_defaults.sh
 
 echo 'Do not forget to open vim and run :PlugInstall to get vim plugins'

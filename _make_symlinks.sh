@@ -9,6 +9,7 @@ set -e
 declare -a dotfile_whitelist=(
   .vim\
   .vimrc\
+  .zshrc\
 )
 
 backup_dir="${HOME}/dotfiles.bak"
@@ -81,6 +82,7 @@ fi
 
 create_symlink "$(pwd)/bin/ts" "$HOME/bin/ts"
 create_symlink "$(pwd)/bin/pyperl" "$HOME/bin/pyperl"
+create_symlink "$(pwd)/aliases.zsh" "$ZSH_CUSTOM/aliases.zsh"
 # create_symlink "$(pwd)/bin/path_compressor.py" "$HOME/bin/path_compressor.py"
 
 mkdir -p "$HOME/.vim_sessions"

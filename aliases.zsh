@@ -1,5 +1,3 @@
-export EDITOR=vim
-
 alias kd='killall Dock'
 alias kc='killall ControlStrip'
 
@@ -59,7 +57,12 @@ gbrd() {
     done
 }
 
+unalias gca
 gca() {
+    if [[ -z "${1// }" ]]; then
+        echo "Error: The first argument is empty or all spaces."
+        return 1
+    fi
     git add --all;
     git commit -am "$1";
 }
@@ -68,5 +71,4 @@ retry() {
   until "$@"; do true; done
 }
 
-
-path=("$HOME/bin" $path)
+alias dev_et="et dev-akshayn -c 'tmux -CC attach-session -dt main || tmux -CC new-session -s main'"
